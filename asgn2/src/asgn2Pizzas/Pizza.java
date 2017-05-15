@@ -14,6 +14,11 @@ import java.time.LocalTime;
  */
 public abstract class Pizza  {
 	
+	protected int quantity;
+	protected String type;	// Margherita, Meat Lover, Vegetarian
+	protected double price;
+	protected LocalTime orderTime;
+	protected LocalTime deliveryTime;
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
 	 *  and parameters is provided in the Assignment Specification, in particular in Section 5.1. 
@@ -33,6 +38,10 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		// TO DO	
+		this.quantity = quantity;
+		this.type = type;
+		this.price = price;
+	
 	}
 
 	/**
