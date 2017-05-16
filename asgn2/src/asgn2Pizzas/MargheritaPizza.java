@@ -36,6 +36,7 @@ public class MargheritaPizza extends Pizza {
 	 */
 	public MargheritaPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
 		// TO DO
+		price = price + (PizzaTopping.CHEESE.getCost() + PizzaTopping.TOMATO.getCost());
 	}
 
 }
