@@ -30,6 +30,16 @@ public class PizzaFactory {
 	 * */
 	public static Pizza getPizza(String pizzaCode, int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException{
 		// TO DO
+		switch (pizzaCode) {
+			case "PZM":
+				return new MargheritaPizza(quantity, orderTime, deliveryTime);
+			case "PZV":
+				return new VegetarianPizza(quantity, orderTime, deliveryTime);
+			case "PZL":
+				return new MeatLoversPizza(quantity, orderTime, deliveryTime);
+			default:
+				throw new PizzaException();
+		}
 	}
 
 }

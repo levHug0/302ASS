@@ -15,13 +15,13 @@ import asgn2Exceptions.PizzaException;
  *
  */
 public abstract class Pizza  {
-	
-	protected int quantity;
-	protected LocalTime orderTime;
-	protected LocalTime deliveryTime;
-	protected String type;
+	private int quantity;
+	private LocalTime orderTime;
+	private LocalTime deliveryTime;
+	private String type;
 	protected double price;
 	
+	private double cost;
 	
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
@@ -42,12 +42,6 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		// TO DO	
-		if (quantity < 1 || quantity > 10) {
-			throw new PizzaException("Check the quantity order. Quantity needs to be at least 1 or less than 10");
-		} else if (price != 8.0 || price != 10.0 || price != 12.0) {
-			throw new PizzaException("Price can only be 8, 10, or 12");
-		}
-		
 		this.quantity = quantity;
 		this.orderTime = orderTime;
 		this.deliveryTime = deliveryTime;
@@ -63,6 +57,15 @@ public abstract class Pizza  {
 	 */
 	public final void calculateCostPerPizza(){
 		// TO DO
+		if (price == 8) {	// Margherita
+			cost = PizzaTopping.CHEESE.getCost() + PizzaTopping.TOMATO.getCost();
+		} else if (price == 10) { // Vegetarian
+			cost = PizzaTopping.TOMATO.getCost() + PizzaTopping.CHEESE.getCost() + PizzaTopping.EGGPLANT.getCost() 
+					+ PizzaTopping.MUSHROOM.getCost() + PizzaTopping.CAPSICUM.getCost();
+		} else {	// Meat lovers
+			cost = PizzaTopping.CHEESE.getCost() + PizzaTopping.TOMATO.getCost() + PizzaTopping.BACON.getCost()
+					+ PizzaTopping.SALAMI.getCost() + PizzaTopping.PEPPERONI.getCost();
+		}
 	}
 	
 	/**
@@ -71,6 +74,7 @@ public abstract class Pizza  {
 	 */
 	public final double getCostPerPizza(){
 		// TO DO
+		return cost;	// returns 1.5, 5.5 or 5
 	}
 
 	/**
@@ -79,6 +83,7 @@ public abstract class Pizza  {
 	 */
 	public final double getPricePerPizza(){
 		// TO DO
+		return price;
 	}
 
 	/**
@@ -87,6 +92,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderCost(){
 		// TO DO
+		return cost * quantity;
 	}
 	
 	/**
@@ -95,6 +101,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderPrice(){
 		// TO DO
+		return price * quantity;
 	}
 	
 	
@@ -104,6 +111,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderProfit(){
 		// TO DO
+		return price - cost;
 	}
 	
 
@@ -114,6 +122,17 @@ public abstract class Pizza  {
 	 */
 	public final boolean containsTopping(PizzaTopping topping){
 		// TO DO
+		if ((price == 8) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE)) {
+			return true;
+		} else if ((price == 10) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE || 
+				topping == PizzaTopping.EGGPLANT || topping == PizzaTopping.MUSHROOM || topping == PizzaTopping.CAPSICUM)) {
+			return true;
+		} else if ((price == 12) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE || 
+				topping == PizzaTopping.BACON || topping == PizzaTopping.PEPPERONI || topping == PizzaTopping.SALAMI)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**

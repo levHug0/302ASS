@@ -17,7 +17,6 @@ import asgn2Exceptions.PizzaException;
  */
 public class MargheritaPizza extends Pizza {
 
-	
 	/**
 	 * 
 	 *  This class represents a margherita pizza made at the  Pizza Palace restaurant.   The margherita pizza has certain
@@ -36,7 +35,7 @@ public class MargheritaPizza extends Pizza {
 	 */
 	public MargheritaPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
 		// TO DO
-		price = price + (PizzaTopping.CHEESE.getCost() + PizzaTopping.TOMATO.getCost());
+		super(quantity, orderTime, deliveryTime, "Margherita", 8);
 	}
 
 }
