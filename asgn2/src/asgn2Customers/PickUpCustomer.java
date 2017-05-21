@@ -27,7 +27,13 @@ public class PickUpCustomer extends Customer {
 	 * 
 	 */
 	public PickUpCustomer(String name, String mobileNumber, int locationX,  int locationY) throws CustomerException {
-		// TO DO	
+		// TO DO
+		this.customerName = name;
+		this.customerMobileNumber = mobileNumber;
+		this.customerLocationX = locationX;
+		this.customerLocationY = locationY;
+	
+		
 	}
 
 	/**

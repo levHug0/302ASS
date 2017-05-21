@@ -8,10 +8,15 @@ import asgn2Exceptions.CustomerException;
  *  the abstract method getDeliveryDistance. A description of the class's
  * fields and their constraints is provided in Section 5.2 of the Assignment Specification.  
  * 
- * @author Person B
+ * @author Raj Rosello
 */
 public abstract class Customer {
 
+	protected String customerName;
+	protected String customerMobileNumber;
+	protected int customerLocationX;
+	protected int customerLocationY;
+	protected String customerType;
 
 	/**
 	 *  This class represents a customer of the Pizza Palace restaurant.  A detailed description of the class's fields
@@ -31,7 +36,14 @@ public abstract class Customer {
 	 * 
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
-		// TO DO
+		
+		if((name == null) || (mobileNumber == null) || (type == null)) throw new CustomerException("Name, mobileNumber or type is NULL");
+		
+		this.customerName = name;
+		this.customerMobileNumber = mobileNumber;
+		this.customerLocationX = locationX;
+		this.customerLocationY = locationY;
+		this.customerType = type;
 	}
 	
 	/**
@@ -39,7 +51,8 @@ public abstract class Customer {
 	 * @return The Customer's name.
 	 */
 	public final String getName(){
-		// TO DO
+		
+		return this.customerName;
 	}
 	
 	/**
@@ -47,7 +60,8 @@ public abstract class Customer {
 	 * @return The Customer's mobile number.
 	 */
 	public final String getMobileNumber(){
-		// TO DO
+		
+		return this.customerMobileNumber;
 	}
 
 	/**
@@ -56,7 +70,8 @@ public abstract class Customer {
 	 * @return A human understandable description of the Customer's type.
 	 */
 	public final String getCustomerType(){
-		// TO DO
+		
+		return this.customerType;
 	}
 	
 	/**
@@ -65,7 +80,8 @@ public abstract class Customer {
 	 * @return The Customer's X location
 	 */
 	public final int getLocationX(){
-		// TO DO
+		
+		return this.customerLocationX;
 	}
 
 	/**
@@ -75,6 +91,8 @@ public abstract class Customer {
 	 */
 	public final int getLocationY(){
 		// TO DO
+		
+		return this.customerLocationY;
 	}
 
 	/**
