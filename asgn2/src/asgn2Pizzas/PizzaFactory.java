@@ -38,7 +38,7 @@ public class PizzaFactory {
 			case "PZL":
 				return new MeatLoversPizza(quantity, orderTime, deliveryTime);
 			default:
-				throw new PizzaException();
+				throw new PizzaException("Use Pizza Code: 'PZM' , 'PZV' , 'PZL'");
 		}
 	}
 

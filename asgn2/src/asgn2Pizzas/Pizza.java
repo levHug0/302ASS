@@ -47,9 +47,9 @@ public abstract class Pizza  {
 		}
 		int order = 0;		// used for checking orderTime
 		int deliver = 0;	// used for checking deliveryTime
-
+		
 		for (int i = 0; i < orderTime.getHour(); i++) {
-			order += 60;	// for example, if time is 06:20, order will be '360'
+			order += 60;	// for example, if time is 06:20, order will be '360' ,   6 * 60 = 360
 		}
 		for (int i = 0; i < deliveryTime.getHour(); i++) {
 			deliver += 60;
@@ -69,7 +69,7 @@ public abstract class Pizza  {
 		if (orderFinished > deliver) {
 			throw new PizzaException("Order takes 10 minutes to cook.Delivery time needs to be atleast 10 mins after Order Time");
 		} else if (orderDeliverDifference >= 60) {
-			throw new PizzaException("Pizza took longer than 60 mins");
+			throw new PizzaException("Pizza thrown out. It took longer than 60 minutes to make and deliver.");
 		}
 		
 		this.quantity = quantity;
