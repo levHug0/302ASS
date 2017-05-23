@@ -42,6 +42,36 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		// TO DO	
+		if (quantity < 1 || quantity > 10) {
+			throw new PizzaException("Atleast ONE pizza must be ordered OR Can only order less than 10 pizzas");
+		}
+		int order = 0;		// used for checking orderTime
+		int deliver = 0;	// used for checking deliveryTime
+
+		for (int i = 0; i < orderTime.getHour(); i++) {
+			order += 60;	// for example, if time is 06:20, order will be '360'
+		}
+		for (int i = 0; i < deliveryTime.getHour(); i++) {
+			deliver += 60;
+		}
+		order += orderTime.getMinute();		// order of 360 + 20 = 380
+		deliver += deliveryTime.getMinute();
+		
+		// 1140 = 19:00 (7pm) 	and 	1380 = 23:00 (11pm)
+		// Checks whether the order is made between 7pm to 11pm
+		if (order < 1140 || order >= 1380) {
+			throw new PizzaException("Order only from 7pm (19:00) to 10:59pm (22:59)");
+		}
+		
+		int orderFinished = order + 10;	// + 10 because it takes 10 minutes to make the Pizza
+		int orderDeliverDifference = deliver - order;	// for example, deliver = 90 and order = 60,   90 - 60 -> difference is 30
+		
+		if (orderFinished > deliver) {
+			throw new PizzaException("Order takes 10 minutes to cook.Delivery time needs to be atleast 10 mins after Order Time");
+		} else if (orderDeliverDifference >= 60) {
+			throw new PizzaException("Pizza took longer than 60 mins");
+		}
+		
 		this.quantity = quantity;
 		this.orderTime = orderTime;
 		this.deliveryTime = deliveryTime;
