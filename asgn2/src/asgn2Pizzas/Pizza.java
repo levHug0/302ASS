@@ -104,6 +104,7 @@ public abstract class Pizza  {
 	 */
 	public final double getCostPerPizza(){
 		// TO DO
+		calculateCostPerPizza();
 		return cost;	// returns 1.5, 5.5 or 5
 	}
 
@@ -122,6 +123,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderCost(){
 		// TO DO
+		calculateCostPerPizza();
 		return cost * quantity;
 	}
 	
@@ -131,6 +133,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderPrice(){
 		// TO DO
+		calculateCostPerPizza();
 		return price * quantity;
 	}
 	
@@ -141,7 +144,8 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderProfit(){
 		// TO DO
-		return price - cost;
+		calculateCostPerPizza();
+		return getOrderPrice() - getOrderCost();
 	}
 	
 
