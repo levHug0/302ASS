@@ -101,6 +101,8 @@ public abstract class Customer {
 	 * @return The distance between the restaurant and the Customer depending on the mode of delivery.
 	 */
 	public abstract double getDeliveryDistance();
+		
+	
 
 	
 	

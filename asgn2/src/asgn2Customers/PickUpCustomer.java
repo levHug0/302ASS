@@ -28,10 +28,7 @@ public class PickUpCustomer extends Customer {
 	 */
 	public PickUpCustomer(String name, String mobileNumber, int locationX,  int locationY) throws CustomerException {
 		// TO DO
-		this.customerName = name;
-		this.customerMobileNumber = mobileNumber;
-		this.customerLocationX = locationX;
-		this.customerLocationY = locationY;
+		super(name, mobileNumber, locationX, locationY, "PickUp");
 	
 		
 	}
@@ -44,6 +41,7 @@ public class PickUpCustomer extends Customer {
 	@Override
 	public double getDeliveryDistance() {
 		// TO DO
+		return 0.0;
 	}
 
 }
