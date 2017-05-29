@@ -125,10 +125,9 @@ public class LogHandler {
 		
 		
 		
-		Pizza returnThis = PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);
+		Pizza returnThis = PizzaFactory.getPizza(pitsaCode, quantityToInt, order, delivery);
 		
-		
-		
+		return returnThis;
 	}
 
 }
