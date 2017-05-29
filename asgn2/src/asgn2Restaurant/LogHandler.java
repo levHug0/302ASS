@@ -2,6 +2,7 @@ package asgn2Restaurant;
 
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
@@ -25,9 +26,6 @@ import asgn2Pizzas.PizzaFactory;
  *
  */
 public class LogHandler {
-	
-	static ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
-	
 	static FileReader fl;
 	static BufferedReader br;
 	static FileReader countingLines;		//		THESE TWO	ARE USED FOR COUNTING THE LINES
@@ -58,7 +56,34 @@ public class LogHandler {
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
 		// TO DO
+		ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
 		
+		try {
+			fl = new FileReader(filename);				// This is the main one
+			countingLines = new FileReader(filename);	// this is used to count how many lines
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		lnr = new LineNumberReader(countingLines);
+		br = new BufferedReader(fl);
+		
+		try {
+			lnr.skip(Long.MAX_VALUE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int lineCount = lnr.getLineNumber() + 1; 		// + 1 because line number counts from 0
+		
+		for (int i = 1; i <= lineCount; i++) {
+			String intToString = Integer.toString(i);		// converts int 'i' into a string
+			Pizza createdPizza = createPizza(intToString);	// use the converted 'i' to be used as a string for the createPizza parameter
+			pizzaList.add(createdPizza);
+		}
+		
+		return pizzaList;
 	}		
 
 	
@@ -119,13 +144,13 @@ public class LogHandler {
 		
 		String orderTime = pizzaArr[0];
 		String deliveryTime = pizzaArr[1];
-		String pitsaCode = pizzaArr[7];
+		String pitsaCode = pizzaArr[7];		// doesn't need to be changed
 		String pizzaQuantity = pizzaArr[8];
 		
 		if (orderTime.matches(timeRegex) == false) {
 			throw new LogHandlerException("Order Time format incorrect. Correct format is HH:MM:SS");	
 		} else if (deliveryTime.matches(timeRegex) == false) {
-			throw new LogHandlerException("Order Time format incorrect. Correct format is HH:MM:SS");	
+			throw new LogHandlerException("Delivery Time format incorrect. Correct format is HH:MM:SS");	
 		} else if (pitsaCode.matches(codeRegex) == false) {
 			throw new LogHandlerException("Incorrect pizzaCode format. Insert 'PZV' 'PZM' 'PZL'");	
 		} else if (pizzaQuantity.matches(intRegex) == false) {
