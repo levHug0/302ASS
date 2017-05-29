@@ -8,6 +8,7 @@ import java.io.LineNumberReader;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import asgn2Customers.Customer;
+import asgn2Customers.CustomerFactory;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
@@ -57,6 +58,7 @@ public class LogHandler {
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
 		// TO DO
+		
 	}		
 
 	
@@ -70,6 +72,16 @@ public class LogHandler {
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		// TO DO
+		String[] compareArray = line.split(",");
+		String name = compareArray[2];
+		String mobileNumber = compareArray[3];
+		String customercode = compareArray[4];
+		int locationX = Integer.parseInt(compareArray[5]);
+		int locationY = Integer.parseInt(compareArray[6]);
+		
+        Customer holder = CustomerFactory.getCustomer(customercode, name, mobileNumber, locationX, locationY);
+		
+        return holder;
 	}
 	
 	/**
@@ -82,6 +94,7 @@ public class LogHandler {
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
 		// TO DO
+
 		String intRegex = "[0-9]+";
 		String timeRegex = "(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)";
 		String codeRegex = "PZ[VML]";
@@ -123,10 +136,8 @@ public class LogHandler {
 		LocalTime delivery = LocalTime.parse(deliveryTime);
 		int quantityToInt = Integer.parseInt(pizzaQuantity);
 		
-		
-		
+	
 		Pizza returnThis = PizzaFactory.getPizza(pitsaCode, quantityToInt, order, delivery);
-		
 		return returnThis;
 	}
 
