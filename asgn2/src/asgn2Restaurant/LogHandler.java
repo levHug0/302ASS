@@ -26,6 +26,7 @@ import asgn2Pizzas.PizzaFactory;
  *
  */
 public class LogHandler {
+
 	static FileReader fl;
 	static BufferedReader br;
 	static FileReader countingLines;		//		THESE TWO	ARE USED FOR COUNTING THE LINES
@@ -43,6 +44,7 @@ public class LogHandler {
 	 */
 	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException{
 		// TO DO
+		
 		
 	}		
 
@@ -97,12 +99,43 @@ public class LogHandler {
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		// TO DO
+		String intRegex = "[0-9]+";
+		String nameRegex = "[A-Z][a-zA-Z ]{1,19}";
+		String mobileNumberRegex = "0[0-9]{9}";
+		String codeRegex1 = "PUC";
+		String codeRegex2 = "DNC";
+		String codeRegex3 = "DVC";
+		
+		if (line.matches(intRegex) == false) {
+			throw new LogHandlerException("Parameter needs to be a numeric string");
+		}
+		
+		int lineToInt = Integer.parseInt(line);
+		String thisLine = null;
+		
+		for (int i = 0; i < lineToInt; i++) {
+			try {
+				thisLine = br.readLine();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		
 		String[] compareArray = line.split(",");
 		String name = compareArray[2];
 		String mobileNumber = compareArray[3];
 		String customercode = compareArray[4];
 		int locationX = Integer.parseInt(compareArray[5]);
 		int locationY = Integer.parseInt(compareArray[6]);
+		
+		if(name.matches(nameRegex) == false){
+			throw new LogHandlerException("Name Format should be maximum 20 characters long minimum of 1 letter and should not have only whitespace");
+		} else if (mobileNumber.matches(mobileNumberRegex) == false){
+			throw new LogHandlerException("Mobile number should start with a 0 and have 10 numbers");
+		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches((codeRegex3)) == false){
+			throw new LogHandlerException("Customer code should be PUC, DNC or DVC");
+		}
 		
         Customer holder = CustomerFactory.getCustomer(customercode, name, mobileNumber, locationX, locationY);
 		
