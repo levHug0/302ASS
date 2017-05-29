@@ -37,7 +37,7 @@ public abstract class Customer {
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
 		
-		if((name == null) || (mobileNumber == null) || (type == null)) throw new CustomerException("Name, mobileNumber or type is NULL");
+		if((name == null) || (mobileNumber == null) || (type == null)) throw new CustomerException("Name, mobileNumber or customer type is NULL");
 		
 		this.customerName = name;
 		this.customerMobileNumber = mobileNumber;
