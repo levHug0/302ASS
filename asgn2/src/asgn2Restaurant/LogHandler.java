@@ -3,6 +3,7 @@ package asgn2Restaurant;
 
 import java.util.ArrayList;
 import asgn2Customers.Customer;
+import asgn2Customers.CustomerFactory;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
@@ -43,6 +44,7 @@ public class LogHandler {
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
 		// TO DO
+		
 	}		
 
 	
@@ -56,6 +58,16 @@ public class LogHandler {
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		// TO DO
+		String[] compareArray = line.split(",");
+		String name = compareArray[2];
+		String mobileNumber = compareArray[3];
+		String customercode = compareArray[4];
+		int locationX = Integer.parseInt(compareArray[5]);
+		int locationY = Integer.parseInt(compareArray[6]);
+		
+        Customer holder = CustomerFactory.getCustomer(customercode, name, mobileNumber, locationX, locationY);
+		
+        return holder;
 	}
 	
 	/**
@@ -67,7 +79,8 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
-		// TO DO		
+		// TO DO
+		
 	}
 
 }
