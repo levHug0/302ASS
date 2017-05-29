@@ -76,6 +76,31 @@ public class PizzaTests {
 		notGonnaWork = new MargheritaPizza(20, order, deliver);
 	}
 	
+	// Indirectly testing order at 11pm (which is the last time anyone is allowed to order)
+	@Test
+	public void OrderingAt11pm() throws PizzaException {
+		LocalTime ord = LocalTime.parse("23:00");
+		LocalTime del = LocalTime.parse("23:59");
+		Pizza test = new MargheritaPizza(9, ord, del);
+		assertEquals(test.getQuantity(), 9);
+	}
+	
+	// Indirectly testing order at 11pm (which is the last time anyone is allowed to order)
+	@Test
+	public void OrderingAt11pmAndDeliverAt12am() throws PizzaException {
+		LocalTime ord = LocalTime.parse("23:00");
+		LocalTime del = LocalTime.parse("00:00");	// 12am 
+		Pizza test = new MargheritaPizza(9, ord, del);
+		assertEquals(test.getQuantity(), 9);
+	}	
+	
+	// Testing order at 11pm, but delivery time took longer than 1 hour
+	@Test (expected = PizzaException.class)
+	public void OrderAt11pmButDeliveryLongerThan1hr() throws PizzaException {
+		LocalTime ord = LocalTime.parse("23:00");
+		LocalTime del = LocalTime.parse("00:01");	// this looks like 1501 which is longer than 60 mins
+		Pizza test = new MargheritaPizza(8, ord, del);
+	}
 	//	///	///	///	///	///	//	//	//	///	////	/////	////	////	////	/////	/////	/////	////	/////	///
 	
 	// Order time 6:30pm not allowed
@@ -108,12 +133,6 @@ public class PizzaTests {
 	public void orderTimeAfter11pmTestTwo() throws PizzaException {
 		notGonnaWork = new MargheritaPizza(8, LocalTime.parse("23:01:00"), LocalTime.parse("00:00:00"));
 		
-	}
-	
-	// Store closes at 11pm, so ordering at that time is not allowed
-	@Test (expected = PizzaException.class)
-	public void orderTimeAt11pm() throws PizzaException {
-		notGonnaWork = new MargheritaPizza(8, LocalTime.parse("23:00:00"), LocalTime.parse("23:50:00"));
 	}
 	
 	// Delivery time can't be lower than Order time - test one
