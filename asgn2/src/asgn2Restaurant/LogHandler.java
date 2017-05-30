@@ -32,6 +32,7 @@ public class LogHandler {
 	static FileReader countingLines;		//		THESE TWO	ARE USED FOR COUNTING THE LINES
 	static LineNumberReader lnr;			//		THESE TWO	ARE USED FOR COUNTING THE LINES
 	
+	
 
 
 	/**
@@ -44,7 +45,35 @@ public class LogHandler {
 	 */
 	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException{
 		// TO DO
+		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		
+		try {
+			fl = new FileReader(filename);				// This is the main one
+			countingLines = new FileReader(filename);	// this is used to count how many lines
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		lnr = new LineNumberReader(countingLines);
+		br = new BufferedReader(fl);
+		
+		try {
+			lnr.skip(Long.MAX_VALUE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int lineCount = lnr.getLineNumber() + 1; 		// + 1 because line number counts from 0
+		
+		for (int i = 1; i <= lineCount; i++) {
+			String intToString = Integer.toString(i);		// converts int 'i' into a string
+			Customer createdcustomer = createCustomer(intToString);	// use the converted 'i' to be used as a string for the createPizza parameter
+			customerList.add(createdcustomer);
+		}
+		
+		return customerList;
+
 		
 	}		
 
@@ -133,7 +162,7 @@ public class LogHandler {
 			throw new LogHandlerException("Name Format should be maximum 20 characters long minimum of 1 letter and should not have only whitespace");
 		} else if (mobileNumber.matches(mobileNumberRegex) == false){
 			throw new LogHandlerException("Mobile number should start with a 0 and have 10 numbers");
-		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches((codeRegex3)) == false){
+		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches(codeRegex3)) == false){
 			throw new LogHandlerException("Customer code should be PUC, DNC or DVC");
 		}
 		
