@@ -5,10 +5,12 @@ import asgn2Restaurant.LogHandler;
 import static org.junit.Assert.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.*;
 
@@ -19,12 +21,12 @@ import asgn2Pizzas.*;
 */
 public class LogHandlerPizzaTests {
 	// TO DO	
-	private LogHandler log;
-	
-	
-	@Before
-	public void createLog() {
-		log = new LogHandler();
+	@Test
+	public void test1() throws PizzaException, LogHandlerException {
+		ArrayList<Pizza> pizzaList = null;
+		pizzaList = LogHandler.populatePizzaDataset("20170101.txt");
+		assertEquals(pizzaList.get(0).getQuantity(), 2);
 	}
+	
 	
 }

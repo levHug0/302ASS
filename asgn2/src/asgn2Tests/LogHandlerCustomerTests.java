@@ -1,5 +1,14 @@
 package asgn2Tests;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import asgn2Exceptions.LogHandlerException;
+import asgn2Exceptions.CustomerException;
+import asgn2Customers.Customer;
 import asgn2Restaurant.LogHandler;
 
 /**
@@ -10,20 +19,11 @@ import asgn2Restaurant.LogHandler;
 public class LogHandlerCustomerTests {
 	// TO DO
 	
-	private LogHandler loghandlerHolder;
-	
-	
-	
-	@Before
-	public void ConstructorTest(){
-		loghandlerHolder = new LogHandler();
-		
-		
-	}
-	
 	@Test
-	public void createcustomerTest0(){
-		
+	public void test1() throws CustomerException, LogHandlerException {
+		ArrayList<Customer> customerList = null;
+		customerList = LogHandler.populateCustomerDataset("20170101.txt");
+		assertEquals(customerList.get(0).getName(), "Casey Jones");
 	}
 	
 	

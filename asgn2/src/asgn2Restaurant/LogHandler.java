@@ -2,6 +2,7 @@ package asgn2Restaurant;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,13 +27,7 @@ import asgn2Pizzas.PizzaFactory;
  *
  */
 public class LogHandler {
-
-	static FileReader fl;
 	static BufferedReader br;
-	static FileReader countingLines;		//		THESE TWO	ARE USED FOR COUNTING THE LINES
-	static LineNumberReader lnr;			//		THESE TWO	ARE USED FOR COUNTING THE LINES
-	
-	
 
 
 	/**
@@ -44,37 +39,50 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException{
-		// TO DO
-		ArrayList<Customer> customerList = new ArrayList<Customer>();
+		File file = new File("./logs/" + filename);
+		
+		if (file.exists() == false) {
+	    	throw new LogHandlerException("File doesn't exist.");
+	    } 
+		
+		ArrayList<Customer> returnCus = new ArrayList<Customer>();
+		FileReader fl = null;			// main one
+		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
-			fl = new FileReader(filename);				// This is the main one
-			countingLines = new FileReader(filename);	// this is used to count how many lines
+			lineCounter = new FileReader(file);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
-		lnr = new LineNumberReader(countingLines);
-		br = new BufferedReader(fl);
-		
+		LineNumberReader lnr = new LineNumberReader(lineCounter);
 		try {
 			lnr.skip(Long.MAX_VALUE);
 		} catch (IOException e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
-		int lineCount = lnr.getLineNumber() + 1; 		// + 1 because line number counts from 0
-		
-		for (int i = 1; i <= lineCount; i++) {
-			String intToString = Integer.toString(i);		// converts int 'i' into a string
-			Customer createdcustomer = createCustomer(intToString);	// use the converted 'i' to be used as a string for the createPizza parameter
-			customerList.add(createdcustomer);
-		}
-		
-		return customerList;
+		int lineReader = lnr.getLineNumber() + 1;		// +1 because getLineNumber starts from 0
 
-		
+		for (int i = 1; i <= lineReader; i++) {
+			try {
+				fl = new FileReader(file);
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+			br = new BufferedReader(fl);
+			String eye = Integer.toString(i);
+			returnCus.add(createCustomer(eye));
+			try {
+				br.close();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		return returnCus;
 	}		
 
 	/**
@@ -87,34 +95,50 @@ public class LogHandler {
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
 		// TO DO
-		ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
+		File file = new File("./logs/" + filename);
+		
+		if (file.exists() == false) {
+	    	throw new LogHandlerException("File doesn't exist.");
+	    } 
+		
+		ArrayList<Pizza> returnPizz = new ArrayList<Pizza>();
+		FileReader fl = null;			// main one
+		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
-			fl = new FileReader(filename);				// This is the main one
-			countingLines = new FileReader(filename);	// this is used to count how many lines
+			lineCounter = new FileReader(file);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
-		lnr = new LineNumberReader(countingLines);
-		br = new BufferedReader(fl);
-		
+		LineNumberReader lnr = new LineNumberReader(lineCounter);
 		try {
 			lnr.skip(Long.MAX_VALUE);
 		} catch (IOException e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
-		int lineCount = lnr.getLineNumber() + 1; 		// + 1 because line number counts from 0
-		
-		for (int i = 1; i <= lineCount; i++) {
-			String intToString = Integer.toString(i);		// converts int 'i' into a string
-			Pizza createdPizza = createPizza(intToString);	// use the converted 'i' to be used as a string for the createPizza parameter
-			pizzaList.add(createdPizza);
+		int lineReader = lnr.getLineNumber() + 1;		// +1 because getLineNumber starts from 0
+
+		for (int i = 1; i <= lineReader; i++) {
+			try {
+				fl = new FileReader(file);
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+			br = new BufferedReader(fl);
+			String eye = Integer.toString(i);
+			returnPizz.add(createPizza(eye));
+			try {
+				br.close();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
 		}
-		
-		return pizzaList;
+		return returnPizz;
 	}		
 
 	
@@ -134,37 +158,42 @@ public class LogHandler {
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
 		String codeRegex3 = "DVC";
+		int lineToInt;
 		
 		if (line.matches(intRegex) == false) {
 			throw new LogHandlerException("Parameter needs to be a numeric string");
+		} else if ((lineToInt = Integer.parseInt(line)) < 1) {
+			throw new LogHandlerException("Line number cannot be a negative or a zero");
 		}
 		
-		int lineToInt = Integer.parseInt(line);
-		String thisLine = null;
-		
-		for (int i = 0; i < lineToInt; i++) {
+		String myLine = null;
+		for (int i = 0;i < lineToInt; i++) {
 			try {
-				thisLine = br.readLine();
+				myLine = br.readLine();		
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
 				e.printStackTrace();
-			}
+			} 
 		}
 		
-		String[] compareArray = line.split(",");
+		String[] compareArray = myLine.split(",");
 		String name = compareArray[2];
 		String mobileNumber = compareArray[3];
 		String customercode = compareArray[4];
-		int locationX = Integer.parseInt(compareArray[5]);
-		int locationY = Integer.parseInt(compareArray[6]);
 		
+		int locationX = Integer.parseInt(compareArray[5]);		//		You should move these 2 after the regex stuff
+		int locationY = Integer.parseInt(compareArray[6]);		//		because you're parsing already without checking them
+																//		if theres an error with the location x or y it'll throw
+																//		a different exception, and you need to throw LogHandlerException
+		
+		/*			FIX THIS	FIX THIS	FIX THIS	FIX THIS	FIX THIS	I THINK nameRegex IS WRONG
 		if(name.matches(nameRegex) == false){
 			throw new LogHandlerException("Name Format should be maximum 20 characters long minimum of 1 letter and should not have only whitespace");
 		} else if (mobileNumber.matches(mobileNumberRegex) == false){
 			throw new LogHandlerException("Mobile number should start with a 0 and have 10 numbers");
 		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches(codeRegex3)) == false){
 			throw new LogHandlerException("Customer code should be PUC, DNC or DVC");
-		}
+		}			FIX THIS	FIX THIS	FIX THIS	FIX THIS	FIX THIS	I THINK nameRegex IS WRONG
+		*/			
 		
         Customer holder = CustomerFactory.getCustomer(customercode, name, mobileNumber, locationX, locationY);
 		
@@ -181,51 +210,44 @@ public class LogHandler {
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
 		// TO DO
-
+		
 		String intRegex = "[0-9]+";
 		String timeRegex = "(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)";
 		String codeRegex = "PZ[VML]";
 		
+		int lineToInt;
 		if (line.matches(intRegex) == false) {
 			throw new LogHandlerException("Parameter needs to be a numeric string");
+		} else if ((lineToInt = Integer.parseInt(line)) < 1) {
+			throw new LogHandlerException("Line number needs to be atleast '1' or more");	
 		}
-		int lineToInt = Integer.parseInt(line);
 		
 		String thisLine = null;
-		
-		for (int i = 0; i < lineToInt; i++) {
+		for (int i = 0;i < lineToInt; i++) {
 			try {
-				thisLine = br.readLine();
+				thisLine = br.readLine();		
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
 				e.printStackTrace();
-			}
+			} 
 		}
+		String[] pizzArr = thisLine.split(",");
 		
-		String[] pizzaArr = thisLine.split(",");
-		
-		String orderTime = pizzaArr[0];
-		String deliveryTime = pizzaArr[1];
-		String pitsaCode = pizzaArr[7];		// doesn't need to be changed
-		String pizzaQuantity = pizzaArr[8];
-		
-		if (orderTime.matches(timeRegex) == false) {
+		if (pizzArr[0].matches(timeRegex) == false) {
 			throw new LogHandlerException("Order Time format incorrect. Correct format is HH:MM:SS");	
-		} else if (deliveryTime.matches(timeRegex) == false) {
+		} else if (pizzArr[1].matches(timeRegex) == false) {
 			throw new LogHandlerException("Delivery Time format incorrect. Correct format is HH:MM:SS");	
-		} else if (pitsaCode.matches(codeRegex) == false) {
+		} else if (pizzArr[7].matches(codeRegex) == false) {
 			throw new LogHandlerException("Incorrect pizzaCode format. Insert 'PZV' 'PZM' 'PZL'");	
-		} else if (pizzaQuantity.matches(intRegex) == false) {
+		} else if (pizzArr[8].matches(intRegex) == false) {
 			throw new LogHandlerException("Make sure the quantity string is a numeric type");
 		}
 		
-		LocalTime order = LocalTime.parse(orderTime);
-		LocalTime delivery = LocalTime.parse(deliveryTime);
-		int quantityToInt = Integer.parseInt(pizzaQuantity);
+		LocalTime orderTime = LocalTime.parse(pizzArr[0]);
+		LocalTime deliveryTime = LocalTime.parse(pizzArr[1]);
+		int quantity = Integer.parseInt(pizzArr[8]);
 		
-	
-		Pizza returnThis = PizzaFactory.getPizza(pitsaCode, quantityToInt, order, delivery);
-		return returnThis;
+		Pizza thisPizza = PizzaFactory.getPizza(pizzArr[7], quantity, orderTime, deliveryTime);
+		return thisPizza;
 	}
 
 }
