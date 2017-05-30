@@ -167,7 +167,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object src=e.getSource();
-		fc.setCurrentDirectory(new File(System.getProperty("user.dir" + logs)));
+		fc.setCurrentDirectory(new File(System.getProperty("user.dir" )));
 		int returnVal = fc.showOpenDialog(this);
 		
 		
