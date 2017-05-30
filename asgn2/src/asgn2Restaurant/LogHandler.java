@@ -23,13 +23,11 @@ import asgn2Pizzas.PizzaFactory;
  * and Customer object - either as an individual Pizza/Customer object or as an
  * ArrayList of Pizza/Customer objects.
  * 
- * @author Person A and Person B
+ * @author Levinard Hugo (Person A) and Raj Rosello (Person B)
  *
  */
 public class LogHandler {
 	static BufferedReader br;
-
-
 	/**
 	 * Returns an ArrayList of Customer objects from the information contained in the log file ordered as they appear in the log file.
 	 * @param filename The file name of the log file
@@ -94,7 +92,6 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
-		// TO DO
 		File file = new File("./logs/" + filename);
 		
 		if (file.exists() == false) {
@@ -209,8 +206,6 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
-		// TO DO
-		
 		String intRegex = "[0-9]+";
 		String timeRegex = "(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)";
 		String codeRegex = "PZ[VML]";

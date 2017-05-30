@@ -3,6 +3,9 @@ package asgn2Restaurant;
 import java.util.ArrayList;
 
 import asgn2Customers.Customer;
+import asgn2Exceptions.CustomerException;
+import asgn2Exceptions.LogHandlerException;
+import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
 
 /**
@@ -14,7 +17,7 @@ import asgn2Pizzas.Pizza;
  *  Any exceptions raised by one of the methods called by this class should be passed to asgn2GUIs.PizzaGUI so that it can be shown to
  *  the user.
  * 
- * @author Person A and Person B
+ * @author Levinard Hugo (Person A) and Raj Rosello (Person B)
  *
  */
 public class PizzaRestaurant {
@@ -33,6 +36,8 @@ public class PizzaRestaurant {
 	 */
 	public PizzaRestaurant() {
 		// TO DO
+		customers = new ArrayList<Customer>();
+		pizzas = new ArrayList<Pizza>();
 	}
 
 	/**
@@ -52,6 +57,9 @@ public class PizzaRestaurant {
 	 */
 	public boolean processLog(String filename) throws CustomerException, PizzaException, LogHandlerException{
 		// TO DO
+		customers = LogHandler.populateCustomerDataset(filename);
+		pizzas = LogHandler.populatePizzaDataset(filename);
+		return true;
 	}
 
 	/**
@@ -62,6 +70,14 @@ public class PizzaRestaurant {
 	 */
 	public Customer getCustomerByIndex(int index) throws CustomerException{
 		// TO DO
+		int size = customers.size();
+		if (index < 0) {
+			throw new CustomerException("Index can't be a negative number");
+		} else if (index >= size) {
+			throw new CustomerException("Index is out of bounds");
+		}
+		Customer returnCus = customers.get(index);
+		return returnCus;
 	}
 	
 	/**
@@ -71,7 +87,14 @@ public class PizzaRestaurant {
 	 * @throws PizzaException if index is invalid.
 	 */	
 	public Pizza getPizzaByIndex(int index) throws PizzaException{
-		// TO DO
+		int size = pizzas.size();
+		if (index < 0) {
+			throw new PizzaException("Index can't be a negative number");
+		} else if (index >= size) {
+			throw new PizzaException("Index is out of bounds");
+		}
+		Pizza returnPizz = pizzas.get(index);
+		return returnPizz;
 	}
 	
 	/**
@@ -82,6 +105,7 @@ public class PizzaRestaurant {
 	 */
 	public int getNumPizzaOrders(){
 		// TO DO
+		return pizzas.size();
 	}
 
 	/**
@@ -92,6 +116,7 @@ public class PizzaRestaurant {
 	 */
 	public int getNumCustomerOrders(){
 		// TO DO
+		return customers.size();
 	}
 
 			
@@ -103,6 +128,9 @@ public class PizzaRestaurant {
 	 */
 	public double getTotalDeliveryDistance(){
 		// TO DO
+		
+		// I don't know how to do this
+		return 0;
 	}
 
 	/**
@@ -112,6 +140,11 @@ public class PizzaRestaurant {
 	 */	
 	public double getTotalProfit(){
 		// TO DO
+		double totalProfit = 0;
+		for (int i =0; i <= getNumPizzaOrders(); i++ ) {
+			totalProfit += pizzas.get(i).getOrderProfit();
+		}
+		return totalProfit;
 	}
 	
 	/**
@@ -122,6 +155,8 @@ public class PizzaRestaurant {
 	 */
 	public void resetDetails(){
 		// TO DO
+		customers.clear();
+		pizzas.clear();
 	}
 
 }

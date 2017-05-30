@@ -20,7 +20,6 @@ public abstract class Pizza  {
 	private LocalTime deliveryTime;
 	private String type;
 	protected double price;
-	
 	private double cost;
 	
 	/**
