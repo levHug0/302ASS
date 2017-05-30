@@ -26,7 +26,8 @@ public class PizzaWizard {
 	 * @param args Command Line Arguments
 	 */
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new PizzaGUI("Pizza Place"));		
+		
+		SwingUtilities.invokeLater(new PizzaGUI("PIZZA RESTAURANT"));		
 		
 	}
 
