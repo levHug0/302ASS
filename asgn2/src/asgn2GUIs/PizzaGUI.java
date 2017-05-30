@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.text.DecimalFormat;
+import javax.swing.JFileChooser;
 
 import javax.swing.JPanel;
 import javax.swing.text.DefaultCaret;
@@ -51,7 +52,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private JTextArea pizzaTextArea;
 	
 	//Create a file chooser
-	private JFileChooser fc;
+	private final JFileChooser fc = new JFileChooser();
 
 
 	private PizzaRestaurant restaurant;
@@ -64,6 +65,8 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		// TO DO
 		super(title);
 	}
+	
+
 
 	private void createGUI() {
 		setSize(WIDTH, HEIGHT);
@@ -164,15 +167,22 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object src=e.getSource();
-		int returnVal = fc.showOpenDialog(FileChooserDemo.this);
+		fc.setCurrentDirectory(new File(System.getProperty("user.dir" + logs)));
+		int returnVal = fc.showOpenDialog(this);
 		
-		if(src == btnLoad){
-			JButton btn = ((JButton) src);
-		      pizzaTextArea.setText(btn.getText().trim());
+		
+			//JButton btn = ((JButton) src);
+		if(returnVal == JFileChooser.APPROVE_OPTION){
+		   File file = fc.getSelectedFile();
+		   String filename = file.getAbsolutePath();
+		}else if(returnVal == JFileChooser.CANCEL_OPTION){
+		    	
+		    }
+			
 		}
 		
 		
-	}
+	
 
 
 }
