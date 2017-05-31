@@ -108,7 +108,9 @@ public class LogHandler {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		
 		LineNumberReader lnr = new LineNumberReader(lineCounter);
+		
 		try {
 			lnr.skip(Long.MAX_VALUE);
 		} catch (IOException e) {
@@ -126,8 +128,8 @@ public class LogHandler {
 				e.printStackTrace();
 			}
 			br = new BufferedReader(fl);
-			String eye = Integer.toString(i);
-			returnPizz.add(createPizza(eye));
+			String iToString = Integer.toString(i);
+			returnPizz.add(createPizza(iToString));
 			try {
 				br.close();
 			} catch (IOException e) {
@@ -148,13 +150,13 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
-		// TO DO
 		String intRegex = "[0-9]+";
 		String nameRegex = "^[a-zA-Z][a-zA-Z' ]{0,19}$";
 		String mobileNumberRegex = "0[0-9]{9}";
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
 		String codeRegex3 = "DVC";
+		String xAndyRegex = "[0-9]";		// "[0-9]"
 		int lineToInt;
 		
 		if (line.matches(intRegex) == false) {
@@ -184,7 +186,9 @@ public class LogHandler {
 			throw new LogHandlerException("Mobile number should start with a 0 and have 10 numbers");
 		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches(codeRegex3)) == false){
 			throw new LogHandlerException("Customer code should be PUC, DNC or DVC");
-		}	
+		} else if ((compareArray[5].matches(xAndyRegex) == false) || (compareArray[6].matches(xAndyRegex) == false)) {
+			throw new LogHandlerException("locationX OR locationY needs to be a number");
+		}
 			
 		int locationX = Integer.parseInt(compareArray[5]);
 		int locationY = Integer.parseInt(compareArray[6]);
