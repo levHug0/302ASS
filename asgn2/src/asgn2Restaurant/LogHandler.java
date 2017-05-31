@@ -44,7 +44,7 @@ public class LogHandler {
 	    } 
 		
 		ArrayList<Customer> returnCus = new ArrayList<Customer>();
-		FileReader fl = null;			// main one
+		FileReader fl = null;				// main one
 		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
