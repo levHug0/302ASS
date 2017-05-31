@@ -44,7 +44,7 @@ public class LogHandler {
 	    } 
 		
 		ArrayList<Customer> returnCus = new ArrayList<Customer>();
-		FileReader fl = null;			// main one
+		FileReader fl = null;				// main one
 		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
@@ -150,8 +150,12 @@ public class LogHandler {
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		// TO DO
 		String intRegex = "[0-9]+";
+<<<<<<< HEAD
 
 		String nameRegex = "[a-zA-Z][a-zA-Z' ]{0,19}";
+=======
+		String nameRegex = "^[a-zA-Z][a-zA-Z' ]{0,19}$";
+>>>>>>> 5d5c5375ee947608063a037c0f6746c2b77439fb
 		String mobileNumberRegex = "0[0-9]{9}";
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";

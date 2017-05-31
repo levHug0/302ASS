@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import asgn2Customers.Customer;
-import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.*;
@@ -79,9 +77,27 @@ public class LogHandlerPizzaTests {
 		 notGonnaWork = LogHandler.populatePizzaDataset("Idontexist.txt");
 	}
 	
-	@Test
-	public void tst() throws CustomerException, LogHandlerException {
-		ArrayList<Customer> cs = LogHandler.populateCustomerDataset("20170101.txt");
+	// Incorrect pizza code
+	@Test (expected = LogHandlerException.class)
+	public void incorrectPizzaCode() throws PizzaException, LogHandlerException {
+		notGonnaWork = LogHandler.populatePizzaDataset("incorrectPizzaCode.txt");
 	}
 	
+	// Incorrect quantity type
+	@Test (expected = LogHandlerException.class)
+	public void negativeQuantity() throws PizzaException, LogHandlerException {
+		notGonnaWork = LogHandler.populatePizzaDataset("quantityNegative.txt");
+	}
+	
+	// incorrect order time format
+	@Test (expected = LogHandlerException.class)
+	public void incorrectOrderTimeFormat() throws PizzaException, LogHandlerException {
+		notGonnaWork = LogHandler.populatePizzaDataset("incorrectOrderTimeFormat.txt");
+	}
+	
+	// incorrect delivery time format
+	@Test (expected = LogHandlerException.class)
+	public void incorrectDeliveryTimeFormat() throws PizzaException, LogHandlerException {
+		notGonnaWork = LogHandler.populatePizzaDataset("incorrectDeliveryTimeFormat.txt");
+	}
 }
