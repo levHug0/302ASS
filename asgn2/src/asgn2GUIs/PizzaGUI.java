@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.text.DecimalFormat;
 import javax.swing.JFileChooser;
+import javax.swing.JScrollPane;
 
 import javax.swing.JPanel;
 import javax.swing.text.DefaultCaret;
@@ -41,12 +42,14 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	
 
 	private static final long serialVersionUID = 1764643302875814043L;
-	public static final int WIDTH = 1000;
-	public static final int HEIGHT = 800;
+	public static final int WIDTH = 500;
+	public static final int HEIGHT = 500;
 	
 	private JPanel pnlDisplay, pnlTwo, pnlBtn, pnlFour, pnlFive;
-	private JButton btnLoad, pizzaButton, customerButton, resetButton;
+	private JButton btnLoad, pizzaButton, customerButton, resetButton, calculateButton;
 	private JTextArea pizzaTextArea;
+	private JScrollPane scroll;
+	private final static String newline = "\n";
 	
 	//The file to be used
 	private File file_opened;
@@ -78,19 +81,27 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    pnlFour = createPanel(Color.LIGHT_GRAY);
 	    pnlFive = createPanel(Color.LIGHT_GRAY);
 	    
+	    
+	    
 	    btnLoad = createButton("Open Log Files"); // creates the button
 	    pizzaButton = createButton("Pizza Info");
 	    customerButton = createButton("Customer Info");
 	    resetButton = createButton("Reset");
+	    calculateButton = createButton("Calculate");
 	    resetButton.setEnabled(false);
 	    pizzaButton.setEnabled(false);
 	    customerButton.setEnabled(false);
+	    calculateButton.setEnabled(false);
 
 	    pizzaTextArea = createTextArea(); // creates the text box
 	    layoutButtonPanel(); // puts the buttons on screen
 	    
-	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
+	    scroll = new JScrollPane(this.pizzaTextArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    
+	    
+	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
+	   
+	    this.getContentPane().add(scroll);
 	    this.getContentPane().add(pnlDisplay,BorderLayout.CENTER);
 	    this.getContentPane().add(pnlTwo,BorderLayout.NORTH);
 	    this.getContentPane().add(pnlBtn,BorderLayout.SOUTH);
@@ -113,10 +124,10 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	}
 	
 	private JTextArea createTextArea() {
-		JTextArea jta = new JTextArea(20,30); 
+		JTextArea jta = new JTextArea(20,30);
 		jta.setEditable(false);
 		jta.setLineWrap(true);
-		jta.setFont(new Font("Arial",Font.BOLD,24));
+		jta.setFont(new Font("Arial",Font.BOLD,12));
 		jta.setBorder(BorderFactory.createEtchedBorder());
 		return jta;
 	}
@@ -136,8 +147,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    
 	    addToPanel(pnlBtn, btnLoad,constraints,0,0,2,1); 
 	    addToPanel(pnlBtn, pizzaButton,constraints,3,0,2,1); 
-	    addToPanel(pnlBtn, customerButton,constraints,5,0,2,1); 
-	    addToPanel(pnlBtn, resetButton,constraints,7,0,2,1); 
+	    addToPanel(pnlBtn, customerButton,constraints,5,0,2,1);
+	    addToPanel(pnlBtn, calculateButton,constraints,7,0,2,1);
+	    addToPanel(pnlBtn, resetButton,constraints,9,0,1,1);
 	}
 	
 	/**
@@ -176,36 +188,80 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		// TODO Auto-generated method stub
 		Object src=e.getSource();
 		
-		
 		if (src== btnLoad) {
+			
 			JButton btn = ((JButton) src);
-			int returnVal = fc.showOpenDialog(this);
+			int returnVal = fc.showOpenDialog(this); // shows the txt files in the folder
 			if(returnVal == JFileChooser.APPROVE_OPTION){
 				   file_opened = fc.getSelectedFile();
-				   String filename = file_opened.getName();
+				   String filename = file_opened.getName(); // gets name of file name
 				   
-				   try {
-					restaurant.processLog(filename);
+				try {
+					restaurant.processLog(filename); // loads the log file chosen
 				} catch (CustomerException | PizzaException | LogHandlerException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				   
-				   pizzaTextArea.setText(filename + " is Chosen");
+				   pizzaTextArea.setText(filename + " is Chosen"+ newline + newline + "Click the other buttons for more information..");
 				   pizzaButton.setEnabled(true);
 				   customerButton.setEnabled(true);
+				   calculateButton.setEnabled(true);
+				   resetButton.setEnabled(true);
 				   btnLoad.setEnabled(false);
 				   
 			}else if(returnVal == JFileChooser.CANCEL_OPTION){
 				    pizzaTextArea.setText("Canceled");
-			}
+			}//end else if
 		}else if(src == pizzaButton){
-			pizzaTextArea.setText("PizzaButton pressed");
 			
+			pizzaTextArea.setText("Pizza Order Information" + newline+ newline);
+			for(int i = 0; i < restaurant.getNumPizzaOrders(); i++){
+				try {
+					pizzaTextArea.append("Pizza Type: " + restaurant.getPizzaByIndex(i).getPizzaType()+ newline);
+					pizzaTextArea.append("Pizza Quantity: " + restaurant.getPizzaByIndex(i).getQuantity()+ newline);
+					pizzaTextArea.append("Order Price: " + restaurant.getPizzaByIndex(i).getOrderPrice()+ newline);
+					pizzaTextArea.append("Order Cost: " + restaurant.getPizzaByIndex(i).getOrderCost()+ newline);
+					pizzaTextArea.append("Order Profit: " + restaurant.getPizzaByIndex(i).getOrderProfit()+ newline);
+					pizzaTextArea.append(newline);
+				} catch (PizzaException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}//end for
 		}else if(src == customerButton){
-			pizzaTextArea.setText("customerButton pressed");
 			
-		}
+			pizzaTextArea.setText("Customer Information" + newline+ newline);
+			// Customername, Mobilenumber, CustomerType, X and Y location, DeliveryDistance
+			for( int i = 0; i < restaurant.getNumCustomerOrders(); i++){
+				try {
+					pizzaTextArea.append("Name: " + restaurant.getCustomerByIndex(i).getName() + newline);
+					pizzaTextArea.append("Mobile Number: " + restaurant.getCustomerByIndex(i).getMobileNumber() + newline );
+					pizzaTextArea.append("Delivery Type: " + restaurant.getCustomerByIndex(i).getCustomerType()+ newline );
+					pizzaTextArea.append("X Location: " + restaurant.getCustomerByIndex(i).getLocationX()+newline );
+					pizzaTextArea.append("Y Location: " + restaurant.getCustomerByIndex(i).getLocationY()+newline );
+					pizzaTextArea.append("Delivery Distance: " + restaurant.getCustomerByIndex(i).getDeliveryDistance() + newline);
+					pizzaTextArea.append(newline);
+				} catch (CustomerException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			} // end for
+		}else if(src == calculateButton){//end if
+			pizzaTextArea.setText("Calculations for total Profit and total Distance" + newline+ newline);
+			pizzaTextArea.append("Total profit made:  " + restaurant.getTotalProfit() + newline);
+			pizzaTextArea.append("Total distance travelled:  " + restaurant.getTotalDeliveryDistance() + newline);
+			
+		}else if(src == resetButton){// end if
+			pizzaTextArea.setText("Select again");
+			btnLoad.setEnabled(true);
+			pizzaButton.setEnabled(false);
+			customerButton.setEnabled(false);
+			calculateButton.setEnabled(false);
+			resetButton.setEnabled(false);
+		}// end else if
 		
 			
 		

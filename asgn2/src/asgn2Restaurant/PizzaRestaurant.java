@@ -130,7 +130,7 @@ public class PizzaRestaurant {
 		// TO DO
 		double totalDistance = 0;
 		
-		for(int i = 0; i <= getNumCustomerOrders(); i++){
+		for(int i = 0; i < getNumCustomerOrders(); i++){
 			totalDistance += customers.get(i).getDeliveryDistance();
 		}
 		
@@ -145,7 +145,7 @@ public class PizzaRestaurant {
 	public double getTotalProfit(){
 		// TO DO
 		double totalProfit = 0;
-		for (int i =0; i <= getNumPizzaOrders(); i++ ) {
+		for (int i =0; i < getNumPizzaOrders(); i++ ) {
 			totalProfit += pizzas.get(i).getOrderProfit();
 		}
 		return totalProfit;
