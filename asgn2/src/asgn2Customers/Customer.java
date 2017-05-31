@@ -70,7 +70,6 @@ public abstract class Customer {
 	 * @return A human understandable description of the Customer's type.
 	 */
 	public final String getCustomerType(){
-		
 		return this.customerType;
 	}
 	
@@ -91,7 +90,6 @@ public abstract class Customer {
 	 */
 	public final int getLocationY(){
 		// TO DO
-		
 		return this.customerLocationY;
 	}
 

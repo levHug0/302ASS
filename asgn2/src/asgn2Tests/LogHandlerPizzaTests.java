@@ -20,7 +20,6 @@ import asgn2Pizzas.*;
 * 
 */
 public class LogHandlerPizzaTests {
-	// TO DO	
 	@Test
 	public void test1() throws PizzaException, LogHandlerException {
 		ArrayList<Pizza> pizzaList = null;

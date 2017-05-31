@@ -29,7 +29,7 @@ public class DriverDeliveryCustomer extends Customer {
 	 */
 	public DriverDeliveryCustomer(String name, String mobileNumber, int locationX, int locationY) throws CustomerException {
 		// TO DO
-		super(name, mobileNumber, locationX, locationY, "DriverDelivery");
+		super(name, mobileNumber, locationX, locationY, "Driver Delivery");
 				
 				
 	}

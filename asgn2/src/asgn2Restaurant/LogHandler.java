@@ -92,14 +92,14 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
-		File file = new File("./logs/" + filename);
+		File file = new File("./logs/" + filename);		// setting the relative path
 		
 		if (file.exists() == false) {
 	    	throw new LogHandlerException("File doesn't exist.");
 	    } 
 		
 		ArrayList<Pizza> returnPizz = new ArrayList<Pizza>();
-		FileReader fl = null;			// main one
+		FileReader fl = null;				// main one
 		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
@@ -203,6 +203,7 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
+		// These are used for checking if they can be parsed into a specific data type
 		String intRegex = "[0-9]+";
 		String timeRegex = "(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)";
 		String codeRegex = "PZ[VML]";
@@ -224,6 +225,7 @@ public class LogHandler {
 		}
 		String[] pizzArr = thisLine.split(",");
 		
+		// Below checks if each data can be parsed into their specific type
 		if (pizzArr[0].matches(timeRegex) == false) {
 			throw new LogHandlerException("Order Time format incorrect. Correct format is HH:MM:SS");	
 		} else if (pizzArr[1].matches(timeRegex) == false) {
@@ -231,9 +233,10 @@ public class LogHandler {
 		} else if (pizzArr[7].matches(codeRegex) == false) {
 			throw new LogHandlerException("Incorrect pizzaCode format. Insert 'PZV' 'PZM' 'PZL'");	
 		} else if (pizzArr[8].matches(intRegex) == false) {
-			throw new LogHandlerException("Make sure the quantity string is a numeric type");
+			throw new LogHandlerException("Make sure the quantity string is numeric");
 		}
 		
+		// Below parses the information 
 		LocalTime orderTime = LocalTime.parse(pizzArr[0]);
 		LocalTime deliveryTime = LocalTime.parse(pizzArr[1]);
 		int quantity = Integer.parseInt(pizzArr[8]);

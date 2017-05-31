@@ -47,4 +47,17 @@ public class PizzaFactoryTests {
 		notGonnaWork = PizzaFactory.getPizza("PML", 3, order, deliver);
 	}
 	
+	// pizza code "pzm"	should still work
+	@Test
+	public void testLowerCasePZM() throws PizzaException {
+		notGonnaWork = PizzaFactory.getPizza("pzm", 1, order, deliver);
+		assertEquals(notGonnaWork.getPizzaType(), "Margherita");
+	}
+	
+	//negative quantity
+	@Test (expected = PizzaException.class)
+	public void negativeQuantity() throws PizzaException {
+		notGonnaWork = PizzaFactory.getPizza("pzl", -1, order, deliver);
+	}
+	
 }
