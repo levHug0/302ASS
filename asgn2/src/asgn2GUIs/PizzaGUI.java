@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.text.DefaultCaret;
 
 import asgn2Customers.Customer;
+import asgn2Exceptions.CustomerException;
+import asgn2Exceptions.LogHandlerException;
+import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
 import asgn2Restaurant.PizzaRestaurant;
 
@@ -38,23 +41,19 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	
 
 	private static final long serialVersionUID = 1764643302875814043L;
-	public static final int WIDTH = 300;
-	public static final int HEIGHT = 200;
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 800;
 	
 	private JPanel pnlDisplay, pnlTwo, pnlBtn, pnlFour, pnlFive;
-	
-	private JButton btnLoad;
-
+	private JButton btnLoad, pizzaButton, customerButton, resetButton;
 	private JTextArea pizzaTextArea;
 	
 	//The file to be used
 	private File file_opened;
-	
 	//Create a file chooser
 	private final JFileChooser fc = new JFileChooser(System.getProperty("user.dir") + "\\logs");
 
-
-	private PizzaRestaurant restaurant;
+	private PizzaRestaurant restaurant = new PizzaRestaurant();
 	
 	/**
 	 * Creates a new Pizza GUI with the specified title 
@@ -80,6 +79,12 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    pnlFive = createPanel(Color.LIGHT_GRAY);
 	    
 	    btnLoad = createButton("Open Log Files"); // creates the button
+	    pizzaButton = createButton("Pizza Info");
+	    customerButton = createButton("Customer Info");
+	    resetButton = createButton("Reset");
+	    resetButton.setEnabled(false);
+	    pizzaButton.setEnabled(false);
+	    customerButton.setEnabled(false);
 
 	    pizzaTextArea = createTextArea(); // creates the text box
 	    layoutButtonPanel(); // puts the buttons on screen
@@ -108,7 +113,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	}
 	
 	private JTextArea createTextArea() {
-		JTextArea jta = new JTextArea(); 
+		JTextArea jta = new JTextArea(20,30); 
 		jta.setEditable(false);
 		jta.setLineWrap(true);
 		jta.setFont(new Font("Arial",Font.BOLD,24));
@@ -130,7 +135,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    constraints.weighty = 100;
 	    
 	    addToPanel(pnlBtn, btnLoad,constraints,0,0,2,1); 
-
+	    addToPanel(pnlBtn, pizzaButton,constraints,3,0,2,1); 
+	    addToPanel(pnlBtn, customerButton,constraints,5,0,2,1); 
+	    addToPanel(pnlBtn, resetButton,constraints,7,0,2,1); 
 	}
 	
 	/**
@@ -168,18 +175,36 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object src=e.getSource();
-		int returnVal = fc.showOpenDialog(this);
+		
 		
 		if (src== btnLoad) {
 			JButton btn = ((JButton) src);
+			int returnVal = fc.showOpenDialog(this);
 			if(returnVal == JFileChooser.APPROVE_OPTION){
 				   file_opened = fc.getSelectedFile();
-				   String filename = file_opened.getAbsolutePath();
+				   String filename = file_opened.getName();
 				   
+				   try {
+					restaurant.processLog(filename);
+				} catch (CustomerException | PizzaException | LogHandlerException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				   
+				   pizzaTextArea.setText(filename + " is Chosen");
+				   pizzaButton.setEnabled(true);
+				   customerButton.setEnabled(true);
+				   btnLoad.setEnabled(false);
 				   
 			}else if(returnVal == JFileChooser.CANCEL_OPTION){
-				    	
+				    pizzaTextArea.setText("Canceled");
 			}
+		}else if(src == pizzaButton){
+			pizzaTextArea.setText("PizzaButton pressed");
+			
+		}else if(src == customerButton){
+			pizzaTextArea.setText("customerButton pressed");
+			
 		}
 		
 			

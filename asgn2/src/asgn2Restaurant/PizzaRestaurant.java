@@ -128,9 +128,13 @@ public class PizzaRestaurant {
 	 */
 	public double getTotalDeliveryDistance(){
 		// TO DO
+		double totalDistance = 0;
 		
-		// I don't know how to do this
-		return 0;
+		for(int i = 0; i <= getNumCustomerOrders(); i++){
+			totalDistance += customers.get(i).getDeliveryDistance();
+		}
+		
+		return totalDistance;
 	}
 
 	/**
