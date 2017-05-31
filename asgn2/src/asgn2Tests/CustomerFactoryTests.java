@@ -131,21 +131,40 @@ public class CustomerFactoryTests {
 		custom = CustomerFactory.getCustomer("PUC", "RAINING ON YOUR BODY ~~ START RUBBING ON YO BODY ~~~", mobileNumber, locationX, locationY);
 	}
 	
-	// DIstance more than 10 blocks
+	// DIstance more than 10 blocks east
 	@Test (expected = CustomerException.class)
-	public void longerThan10Blocks() throws CustomerException {
+	public void moreThan10BlocksEast() throws CustomerException {
 		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 11, -6);
 	}
 	
-	// Distance more than 10 blocks Test 2
+	// Distance more than 10 blocks west
 	@Test (expected = CustomerException.class)
-	public void longerThan10BlocksT2() throws CustomerException {
-		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, -2, 11);
+	public void moreThan10BlocksWest() throws CustomerException {
+		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, -11, 3);
 	}
 	
-	// Distance more than 10 blocks Test 3
+	// Distance more than 10 blocks north
 	@Test (expected = CustomerException.class)
-	public void longerThan10BlocksT3() throws CustomerException {
-		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 4, -5);
+	public void moreThan10BlocksNorth() throws CustomerException {
+		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 4, 12);
 	}
+	
+	// Distance more than 10 blocks south
+	@Test (expected = CustomerException.class)
+	public void moreThan10BlocksSouth() throws CustomerException {
+		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 4, -13);
+	}
+	
+	// name can't be null
+	@Test (expected = CustomerException.class)
+	public void nameNotAllowedToBeNull() throws CustomerException {
+		custom = CustomerFactory.getCustomer("PUC", null, mobileNumber, locationX, locationY);
+	}
+	
+	// mobile can't be null
+	@Test (expected = CustomerException.class)
+	public void mobileNotAllowedToBeNull() throws CustomerException {
+		custom = CustomerFactory.getCustomer("PUC", name, null, locationX, locationY);
+	}
+	
 }
