@@ -150,7 +150,7 @@ public class LogHandler {
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		// TO DO
 		String intRegex = "[0-9]+";
-		String nameRegex = "[A-Z][a-zA-Z ]{1,19}";
+		String nameRegex = "[a-zA-Z][a-zA-Z ]{2,19}";
 		String mobileNumberRegex = "0[0-9]{9}";
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
@@ -177,20 +177,17 @@ public class LogHandler {
 		String mobileNumber = compareArray[3];
 		String customercode = compareArray[4];
 		
-		int locationX = Integer.parseInt(compareArray[5]);		//		You should move these 2 after the regex stuff
-		int locationY = Integer.parseInt(compareArray[6]);		//		because you're parsing already without checking them
-																//		if theres an error with the location x or y it'll throw
-																//		a different exception, and you need to throw LogHandlerException
-		
-		/*			FIX THIS	FIX THIS	FIX THIS	FIX THIS	FIX THIS	I THINK nameRegex IS WRONG
+				
 		if(name.matches(nameRegex) == false){
 			throw new LogHandlerException("Name Format should be maximum 20 characters long minimum of 1 letter and should not have only whitespace");
 		} else if (mobileNumber.matches(mobileNumberRegex) == false){
 			throw new LogHandlerException("Mobile number should start with a 0 and have 10 numbers");
 		} else if ((customercode.matches(codeRegex1) || customercode.matches(codeRegex2) || customercode.matches(codeRegex3)) == false){
 			throw new LogHandlerException("Customer code should be PUC, DNC or DVC");
-		}			FIX THIS	FIX THIS	FIX THIS	FIX THIS	FIX THIS	I THINK nameRegex IS WRONG
-		*/			
+		}	
+			
+		int locationX = Integer.parseInt(compareArray[5]);
+		int locationY = Integer.parseInt(compareArray[6]);
 		
         Customer holder = CustomerFactory.getCustomer(customercode, name, mobileNumber, locationX, locationY);
 		

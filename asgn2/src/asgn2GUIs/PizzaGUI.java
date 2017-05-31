@@ -41,18 +41,17 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public static final int WIDTH = 300;
 	public static final int HEIGHT = 200;
 	
-	private JPanel pnlDisplay;
-	private JPanel pnlTwo;
-	private JPanel pnlBtn;
-	private JPanel pnlFour;
-	private JPanel pnlFive;
+	private JPanel pnlDisplay, pnlTwo, pnlBtn, pnlFour, pnlFive;
 	
 	private JButton btnLoad;
 
 	private JTextArea pizzaTextArea;
 	
+	//The file to be used
+	private File file_opened;
+	
 	//Create a file chooser
-	private final JFileChooser fc = new JFileChooser();
+	private final JFileChooser fc = new JFileChooser(System.getProperty("user.dir") + "\\logs");
 
 
 	private PizzaRestaurant restaurant;
@@ -152,7 +151,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	      constraints.gridwidth = w;
 	      constraints.gridheight = h;
 	      jp.add(c, constraints);
-	   }
+	}
+	
+	
 	
 	
 	@Override
@@ -167,19 +168,23 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object src=e.getSource();
-		fc.setCurrentDirectory(new File(System.getProperty("user.dir" )));
 		int returnVal = fc.showOpenDialog(this);
 		
-		
-			//JButton btn = ((JButton) src);
-		if(returnVal == JFileChooser.APPROVE_OPTION){
-		   File file = fc.getSelectedFile();
-		   String filename = file.getAbsolutePath();
-		}else if(returnVal == JFileChooser.CANCEL_OPTION){
-		    	
-		    }
-			
+		if (src== btnLoad) {
+			JButton btn = ((JButton) src);
+			if(returnVal == JFileChooser.APPROVE_OPTION){
+				   file_opened = fc.getSelectedFile();
+				   String filename = file_opened.getAbsolutePath();
+				   
+				   
+			}else if(returnVal == JFileChooser.CANCEL_OPTION){
+				    	
+			}
 		}
+		
+			
+		
+	}
 		
 		
 	
