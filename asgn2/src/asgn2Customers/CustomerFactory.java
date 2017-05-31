@@ -30,7 +30,7 @@ public class CustomerFactory {
 	public static Customer getCustomer(String customerCode, String name, String mobileNumber, int locationX,  int locationY) throws CustomerException{
 		// TO DO
 		
-		switch(customerCode){
+		switch(customerCode.toUpperCase()){
 		case "PUC":
 			return new PickUpCustomer(name, mobileNumber, locationX, locationY);
 		case "DNC":

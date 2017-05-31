@@ -91,7 +91,6 @@ public abstract class Customer {
 	 */
 	public final int getLocationY(){
 		// TO DO
-		
 		return this.customerLocationY;
 	}
 
