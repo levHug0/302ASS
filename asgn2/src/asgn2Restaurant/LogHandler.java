@@ -151,14 +151,8 @@ public class LogHandler {
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		String intRegex = "[0-9]+";
-<<<<<<< HEAD
-
-
 		String nameRegex = "[a-zA-Z][a-zA-Z' ]{0,19}";
 
-=======
-		String nameRegex = "[a-zA-Z][a-zA-Z' ]{0,19}";
->>>>>>> 0c27e50e7648280b09fad9dfac4ff536a7b08c0c
 		String mobileNumberRegex = "0[0-9]{9}";
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
