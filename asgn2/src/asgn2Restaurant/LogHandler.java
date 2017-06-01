@@ -157,7 +157,7 @@ public class LogHandler {
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
 		String codeRegex3 = "DVC";
-		String xAndyRegex = "[0-9]";		// "[0-9]"
+		String xAndyRegex = "[+-]?[0-9]{1}0?";		// "[0-9]"
 		int lineToInt;
 		
 		if (line.matches(intRegex) == false) {
