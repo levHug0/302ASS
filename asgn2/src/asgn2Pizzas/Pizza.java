@@ -40,7 +40,6 @@ public abstract class Pizza  {
 	 * 
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
-		// TO DO	
 		if (quantity < 1 || quantity > 10) {
 			throw new PizzaException("Atleast ONE pizza must be ordered OR Can only order less than 10 pizzas");
 		}
@@ -90,7 +89,6 @@ public abstract class Pizza  {
 	 * <P> POST: The cost field is set to sum of the Pizzas's toppings
 	 */
 	public final void calculateCostPerPizza(){
-		// TO DO
 		if (price == 8) {	// Margherita
 			cost = PizzaTopping.CHEESE.getCost() + PizzaTopping.TOMATO.getCost();
 		} else if (price == 10) { // Vegetarian
@@ -117,7 +115,6 @@ public abstract class Pizza  {
 	 * @return The amount that an individual pizza is sold to the customer.
 	 */
 	public final double getPricePerPizza(){
-		// TO DO
 		return price;
 	}
 
@@ -126,7 +123,6 @@ public abstract class Pizza  {
 	 * @return The amount that the entire order costs to make, taking into account the type and quantity of pizzas. 
 	 */
 	public final double getOrderCost(){
-		// TO DO
 		calculateCostPerPizza();
 		return cost * quantity;
 	}
@@ -136,7 +132,6 @@ public abstract class Pizza  {
 	 * @return The amount that the entire order is sold to the customer, taking into account the type and quantity of pizzas. 
 	 */
 	public final double getOrderPrice(){
-		// TO DO
 		calculateCostPerPizza();
 		return price * quantity;
 	}
@@ -147,7 +142,6 @@ public abstract class Pizza  {
 	 * @return  Returns the profit made by the restaurant on the order which is the order price minus the order cost.
 	 */
 	public final double getOrderProfit(){
-		// TO DO
 		calculateCostPerPizza();
 		return getOrderPrice() - getOrderCost();
 	}
@@ -159,7 +153,6 @@ public abstract class Pizza  {
 	 * @return Returns  true if the instance of Pizza contains the specified topping and false otherwise.
 	 */
 	public final boolean containsTopping(PizzaTopping topping){
-		// TO DO
 		if ((price == 8) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE)) {
 			return true;
 		} else if ((price == 10) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE || 
@@ -178,7 +171,6 @@ public abstract class Pizza  {
 	 * @return the quantity of pizzas ordered. 
 	 */
 	public final int getQuantity(){
-		// TO DO
 		return quantity;
 	}
 
@@ -188,7 +180,6 @@ public abstract class Pizza  {
 	 * @return A human understandable description of the Pizza's type.
 	 */
 	public final String getPizzaType(){
-		// TO DO
 		return type;
 	}
 

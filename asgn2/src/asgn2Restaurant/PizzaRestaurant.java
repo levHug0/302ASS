@@ -21,7 +21,6 @@ import asgn2Pizzas.Pizza;
  *
  */
 public class PizzaRestaurant {
-
 	private ArrayList<Customer> customers;
 	private ArrayList<Pizza> pizzas;
 
@@ -35,7 +34,6 @@ public class PizzaRestaurant {
 	 * 
 	 */
 	public PizzaRestaurant() {
-		// TO DO
 		customers = new ArrayList<Customer>();
 		pizzas = new ArrayList<Pizza>();
 	}
@@ -56,7 +54,6 @@ public class PizzaRestaurant {
      *
 	 */
 	public boolean processLog(String filename) throws CustomerException, PizzaException, LogHandlerException{
-		// TO DO
 		customers = LogHandler.populateCustomerDataset(filename);
 		pizzas = LogHandler.populatePizzaDataset(filename);
 		return true;
@@ -69,7 +66,6 @@ public class PizzaRestaurant {
 	 * @throws CustomerException if index is invalid.
 	 */
 	public Customer getCustomerByIndex(int index) throws CustomerException{
-		// TO DO
 		int size = customers.size();
 		if (index < 0) {
 			throw new CustomerException("Index can't be a negative number");
@@ -104,7 +100,6 @@ public class PizzaRestaurant {
 	 * @return the number of objects contained in the pizzas field.
 	 */
 	public int getNumPizzaOrders(){
-		// TO DO
 		return pizzas.size();
 	}
 
@@ -115,7 +110,6 @@ public class PizzaRestaurant {
 	 * @return the number of objects contained in the customers field.
 	 */
 	public int getNumCustomerOrders(){
-		// TO DO
 		return customers.size();
 	}
 
@@ -127,7 +121,6 @@ public class PizzaRestaurant {
 	 * @return the total delivery distance for all Customers objects in the customers field.
 	 */
 	public double getTotalDeliveryDistance(){
-		// TO DO
 		double totalDistance = 0;
 		
 		for(int i = 0; i < getNumCustomerOrders(); i++){
@@ -143,8 +136,8 @@ public class PizzaRestaurant {
 	 * @return the total profit for all of the Pizza objects in the pizzas field.
 	 */	
 	public double getTotalProfit(){
-		// TO DO
 		double totalProfit = 0;
+		
 		for (int i =0; i < getNumPizzaOrders(); i++ ) {
 			totalProfit += pizzas.get(i).getOrderProfit();
 		}
@@ -158,7 +151,6 @@ public class PizzaRestaurant {
 	 * <P> POST:  The pizzas and customers fields are set to their initial empty states
 	 */
 	public void resetDetails(){
-		// TO DO
 		customers.clear();
 		pizzas.clear();
 	}
