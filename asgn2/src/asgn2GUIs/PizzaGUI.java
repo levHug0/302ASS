@@ -2,6 +2,7 @@ package asgn2GUIs;
 
 import java.awt.event.ActionEvent;
 
+import java.text.DecimalFormat;
 
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -50,6 +51,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private JTextArea pizzaTextArea;
 	private JScrollPane scroll;
 	private final static String newline = "\n";
+	private static DecimalFormat df2 = new DecimalFormat("0.00");
 	
 	//The file to be used
 	private File file_opened;
@@ -221,9 +223,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 				try {
 					pizzaTextArea.append("Pizza Type: " + restaurant.getPizzaByIndex(i).getPizzaType()+ newline);
 					pizzaTextArea.append("Pizza Quantity: " + restaurant.getPizzaByIndex(i).getQuantity()+ newline);
-					pizzaTextArea.append("Order Price: " + restaurant.getPizzaByIndex(i).getOrderPrice()+ newline);
-					pizzaTextArea.append("Order Cost: " + restaurant.getPizzaByIndex(i).getOrderCost()+ newline);
-					pizzaTextArea.append("Order Profit: " + restaurant.getPizzaByIndex(i).getOrderProfit()+ newline);
+					pizzaTextArea.append("Order Price: " + df2.format(restaurant.getPizzaByIndex(i).getOrderPrice())+ newline);
+					pizzaTextArea.append("Order Cost: " + df2.format(restaurant.getPizzaByIndex(i).getOrderCost())+ newline);
+					pizzaTextArea.append("Order Profit: " + df2.format(restaurant.getPizzaByIndex(i).getOrderProfit())+ newline);
 					pizzaTextArea.append(newline);
 				} catch (PizzaException e1) {
 					// Auto-generated catch block
@@ -242,7 +244,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					pizzaTextArea.append("Delivery Type: " + restaurant.getCustomerByIndex(i).getCustomerType()+ newline );
 					pizzaTextArea.append("X Location: " + restaurant.getCustomerByIndex(i).getLocationX()+newline );
 					pizzaTextArea.append("Y Location: " + restaurant.getCustomerByIndex(i).getLocationY()+newline );
-					pizzaTextArea.append("Delivery Distance: " + restaurant.getCustomerByIndex(i).getDeliveryDistance() + newline);
+					pizzaTextArea.append("Delivery Distance: " + df2.format(restaurant.getCustomerByIndex(i).getDeliveryDistance()) + newline);
 					pizzaTextArea.append(newline);
 				} catch (CustomerException e1) {
 					// Auto-generated catch block
@@ -252,8 +254,8 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 			} // end for
 		}else if(src == calculateButton){//end if
 			pizzaTextArea.setText("Calculations for total Profit and total Distance" + newline+ newline);
-			pizzaTextArea.append("Total profit made:  " + restaurant.getTotalProfit() + newline);
-			pizzaTextArea.append("Total distance travelled:  " + restaurant.getTotalDeliveryDistance() + newline);
+			pizzaTextArea.append("Total profit made:  " + df2.format(restaurant.getTotalProfit()) + newline);
+			pizzaTextArea.append("Total distance travelled:  " + df2.format(restaurant.getTotalDeliveryDistance()) + newline);
 			
 		}else if(src == resetButton){// end if
 			pizzaTextArea.setText("Select again");
