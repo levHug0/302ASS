@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
+import asgn2Pizzas.Pizza;
 import asgn2Exceptions.CustomerException;
 import asgn2Customers.Customer;
 import asgn2Restaurant.LogHandler;
@@ -52,6 +53,12 @@ public class RestaurantCustomerTests {
 	@Test
 	public void numOrdersT()  {
 		assertEquals(pr.getNumCustomerOrders(), 3);
+	}
+	
+	// getNumCustomerOrders() should be the same as getNumPizzaOrders()
+	@Test
+	public void numOrdersT2() {
+		assertEquals(pr.getNumCustomerOrders(), pr.getNumPizzaOrders());
 	}
 	
 	// getTotalDeliveryDistance() for file 20170101.txt should be 15, becase distance for line 1 is 10, for line 2 its 5
