@@ -206,7 +206,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 						resetButton.setEnabled(true);
 						btnLoad.setEnabled(false);
 					
-					restaurant.processLog(filename); // loads the log file chosen
+						restaurant.processLog(filename); // loads the log file chosen
 				} catch (CustomerException | PizzaException | LogHandlerException e1) {
 					JOptionPane.showMessageDialog(this, "Unsuccessful", "Loading Log file",JOptionPane.ERROR_MESSAGE); 
 					e1.printStackTrace();
