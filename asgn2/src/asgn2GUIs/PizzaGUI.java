@@ -96,17 +96,16 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    pizzaTextArea = createTextArea(); // creates the text box
 	    layoutButtonPanel(); // puts the buttons on screen
 	    
-	    scroll = new JScrollPane(this.pizzaTextArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	    
-	    
-	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
-	   
-	    this.getContentPane().add(scroll);
+
 	    this.getContentPane().add(pnlDisplay,BorderLayout.CENTER);
 	    this.getContentPane().add(pnlTwo,BorderLayout.NORTH);
 	    this.getContentPane().add(pnlBtn,BorderLayout.SOUTH);
 	    this.getContentPane().add(pnlFour,BorderLayout.EAST);
 	    this.getContentPane().add(pnlFive,BorderLayout.WEST);
+	    scroll = new JScrollPane(pnlDisplay,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    this.getContentPane().add(scroll);
+	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
+	    
 	    repaint(); 
 	    this.setVisible(true);
 	}
