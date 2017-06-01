@@ -44,6 +44,9 @@ public abstract class Customer {
 		if(locationX < -10) throw new CustomerException("LocationX is less than -10");
 		if(locationY > 10) throw new CustomerException("LocationY is greater than 10");
 		if(locationY < -10) throw new CustomerException("LocationY is less than -10");
+		if(name.matches("[a-zA-Z][a-zA-Z' ]{0,19}") == false) throw new CustomerException("Name should be 20 characters and must not have ONLY whitespaces");
+		if(mobileNumber.matches("0[0-9]{9}$") == false) throw new CustomerException("Mobile Number should ");
+		if((type == "Pick Up") && (locationX != 0 || locationY != 0))throw new CustomerException("You can't have a distance when you choose pick up!");
 		
 		
 		this.customerName = name;

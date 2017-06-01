@@ -39,7 +39,7 @@ public class CustomerFactoryTests {
 	// Indirectly testing the Driver Delivery
 	@Test
 	public void createPickUp() throws CustomerException {
-		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, locationX, locationY);
+		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 0, 0);
 		assertEquals(custom.getCustomerType(), "Pick Up");
 	}
 	
@@ -64,7 +64,7 @@ public class CustomerFactoryTests {
 	// testing customer code in lower case "puc"
 	@Test
 	public void lowerCasePickUp() throws CustomerException {
-		custom = CustomerFactory.getCustomer("puc", name, mobileNumber, locationX, locationY);
+		custom = CustomerFactory.getCustomer("puc", name, mobileNumber, 0, 0);
 		assertEquals(custom.getCustomerType(), "Pick Up");
 	}
 	
@@ -121,7 +121,7 @@ public class CustomerFactoryTests {
 	// name of customer is 1 character long should work
 	@Test
 	public void nameOfCustomIs1char() throws CustomerException {
-		custom = CustomerFactory.getCustomer("PUC", "L", mobileNumber, locationX, locationY);
+		custom = CustomerFactory.getCustomer("PUC", "L", mobileNumber, 0, 0);
 		assertEquals(custom.getName(), "L");
 	}
 	

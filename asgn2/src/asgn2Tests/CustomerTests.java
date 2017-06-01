@@ -33,6 +33,7 @@ public class CustomerTests {
 	@Before		
 	public void createCustomer() throws CustomerException {
 		dl = new DriverDeliveryCustomer(name, mobileNumber, locationX, locationY);
+		
 	}
 	
 	// Null name 
@@ -82,7 +83,7 @@ public class CustomerTests {
 	// test getCustomerType() PickUp
 	@Test
 	public void getCustomerTypeForPU() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, locationX, locationY);
+		Customer pu = new PickUpCustomer(name, mobileNumber, 0, 0);
 		assertEquals(pu.getCustomerType(), "Pick Up");
 	}
 
@@ -173,128 +174,130 @@ public class CustomerTests {
 	// If it's a PickUpCustomer class, location x and y can only be 0, in this test locationX is a positive number
 	@Test (expected = CustomerException.class)
 	public void locXforPUPositive() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, 1, 0);
+		errorCustomer = new PickUpCustomer(name, mobileNumber, 1, 0);
 	}
 	
 	// in this test locationY is a positive number
 	@Test (expected = CustomerException.class)
 	public void locYforPUPositive() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, 0, 3);
+		Customer testing = new PickUpCustomer(name, mobileNumber, 0, 3);
 	}
 	
 	// in this test locationX is a negative number
 	@Test (expected = CustomerException.class)
 	public void locXforPUNegative() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, -2, 0);
+		errorCustomer = new PickUpCustomer(name, mobileNumber, -2, 0);
 	}
 	
 	// in this test locationY is a negative number
 	@Test (expected = CustomerException.class)
 	public void locYforPUNegative() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, 0, -1);
+		errorCustomer = new PickUpCustomer(name, mobileNumber, 0, -1);
 	}
 	
 	// in this test both location x and y are positive
 	@Test (expected = CustomerException.class)
 	public void XandYPositive() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, 1, 3);
+		errorCustomer = new PickUpCustomer(name, mobileNumber, 1, 3);
 	}
 
 	// in this test both location x and y are negative
 	@Test (expected = CustomerException.class)
 	public void XandYNegative() throws CustomerException {
-		Customer pu = new PickUpCustomer(name, mobileNumber, -1, -3);
+		errorCustomer = new PickUpCustomer(name, mobileNumber, -1, -3);
 	}	
 	
 	// Whitespace name
 	@Test (expected = CustomerException.class)
 	public void whiteSpaceName() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer("", mobileNumber, locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer("", mobileNumber, locationX, locationY);
 	}
 	
 	// name longer than 20 characters
 	@Test (expected = CustomerException.class)
 	public void longerThan20CharactersName() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer("I enjoyed this assignment very much", mobileNumber, locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer("I enjoyed this assignment very much", mobileNumber, locationX, locationY);
 	}
 	
 	// Mobile num longer than 10 digit
 	@Test (expected = CustomerException.class)
 	public void mobileNumLongerThan10digit() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, "012345678931", locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, "012345678931", locationX, locationY);
 	}	
 	
 	// Mobile num less than 10 digit
 	@Test (expected = CustomerException.class)
 	public void mobileNumLessThan10() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, "09418", locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, "09418", locationX, locationY);
 	}
 	
 	// Mobile num doesn't start at 0
 	@Test (expected = CustomerException.class)
 	public void mobileNumLongerNotStartAtZero() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, "9878789675", locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, "9878789675", locationX, locationY);
 	}	
 		
 	// mobile with a letter 
 	@Test (expected = CustomerException.class)
 	public void mobileWithaLetter() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, "0123456r78", locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, "0123456r78", locationX, locationY);
 	}
 	
 	// mobile with a word
 	@Test (expected = CustomerException.class)
 	public void mobileWithAWord() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, "012LOL3452", locationX, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, "012LOL3452", locationX, locationY);
+		
+		
 	}	
 	
 	// location X longer than 10 blocks positive
 	@Test (expected = CustomerException.class)
 	public void locationXmorethan10() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, 11, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, 11, locationY);
 	}
 	
 	// location Y longer than 10 blocks positive
 	@Test (expected = CustomerException.class)
 	public void locationYmorethan10() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, locationX, 12);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, locationX, 12);
 	}
 	
 	// location X longer than 10 blocks negative
 	@Test (expected = CustomerException.class)
 	public void locationXmorethan10Negative() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, -11, locationY);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, -11, locationY);
 	}
 	
 	// location Y longer than 10 blocks negative
 	@Test (expected = CustomerException.class)
 	public void locationYmorethan10Negative() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, locationX, -12);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, locationX, -12);
 	}
 	
 	
 	// both location longer than 10 positive
 	@Test (expected = CustomerException.class)
 	public void bothLocationPositiveAndOver10() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, 12, 13);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, 12, 13);
 	}
 	
 	// Both location longer than 10 negative
 	@Test (expected = CustomerException.class)
 	public void bothLocationNegativeAndOver10() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer(name, mobileNumber, -14, -12);
+		errorCustomer = new DriverDeliveryCustomer(name, mobileNumber, -14, -12);
 	}
 		
 	// every single parameter incorrect
 	@Test (expected = CustomerException.class)
 	public void allParamWrong() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer("", "5612231398", -199, 18);
+		errorCustomer = new DriverDeliveryCustomer("", "5612231398", -199, 18);
 	}
 	
 	// every single parameter incorrect test2
 	@Test (expected = CustomerException.class)
 	public void allParamWrongT2() throws CustomerException {
-		Customer driver = new DriverDeliveryCustomer("I LOVE WRITING UNIT TEST WOOOOO~~~~", "05611398", 69, -69);
+		errorCustomer = new DriverDeliveryCustomer("I LOVE WRITING UNIT TEST WOOOOO~~~~", "05611398", 69, -69);
 	}
 	
 }

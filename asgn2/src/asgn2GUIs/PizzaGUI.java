@@ -244,7 +244,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					pizzaTextArea.append("Delivery Type: " + restaurant.getCustomerByIndex(i).getCustomerType()+ newline );
 					pizzaTextArea.append("X Location: " + restaurant.getCustomerByIndex(i).getLocationX()+newline );
 					pizzaTextArea.append("Y Location: " + restaurant.getCustomerByIndex(i).getLocationY()+newline );
-					pizzaTextArea.append("Delivery Distance: " + df2.format(restaurant.getCustomerByIndex(i).getDeliveryDistance()) + newline);
+					pizzaTextArea.append("Delivery Distance(Unit = blocks): " + df2.format(restaurant.getCustomerByIndex(i).getDeliveryDistance()) + newline);
 					pizzaTextArea.append(newline);
 				} catch (CustomerException e1) {
 					// Auto-generated catch block
@@ -255,7 +255,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		}else if(src == calculateButton){//end if
 			pizzaTextArea.setText("Calculations for total Profit and total Distance" + newline+ newline);
 			pizzaTextArea.append("Total profit made:  " + df2.format(restaurant.getTotalProfit()) + newline);
-			pizzaTextArea.append("Total distance travelled:  " + df2.format(restaurant.getTotalDeliveryDistance()) + newline);
+			pizzaTextArea.append("Total distance travelled(Unit = blocks):  " + df2.format(restaurant.getTotalDeliveryDistance()) + newline);
 			
 		}else if(src == resetButton){// end if
 			pizzaTextArea.setText("Select again");
