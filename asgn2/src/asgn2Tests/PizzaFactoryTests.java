@@ -16,7 +16,7 @@ import asgn2Pizzas.*;
  * 
  */
 public class PizzaFactoryTests {
-	// TO DO
+	
 	private Pizza mg;		// margherita
 	private Pizza vg;		// vegetarian
 	private Pizza ml;	// meat lover

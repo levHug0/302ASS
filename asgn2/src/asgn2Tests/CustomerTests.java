@@ -20,7 +20,7 @@ import asgn2Exceptions.CustomerException;
  *
  */
 public class CustomerTests {
-	// TO DO
+	
 	private Customer dl;
 	private Customer errorCustomer;		// used for exception tests
 	

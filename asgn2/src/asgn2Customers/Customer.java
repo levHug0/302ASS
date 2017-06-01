@@ -37,7 +37,14 @@ public abstract class Customer {
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
 		
-		if((name == null) || (mobileNumber == null) || (type == null)) throw new CustomerException("Name, mobileNumber or customer type is NULL");
+		if(name == null) throw new CustomerException("Name given is NULL");
+		if(mobileNumber == null) throw new CustomerException("Mobile number is NULL");
+		if(type == null) throw new CustomerException("type of customer is NULL");
+		if(locationX > 10) throw new CustomerException("LocationX is greater than 10");
+		if(locationX < -10) throw new CustomerException("LocationX is less than -10");
+		if(locationY > 10) throw new CustomerException("LocationY is greater than 10");
+		if(locationY < -10) throw new CustomerException("LocationY is less than -10");
+		
 		
 		this.customerName = name;
 		this.customerMobileNumber = mobileNumber;
@@ -89,7 +96,7 @@ public abstract class Customer {
 	 * @return The Customer's Y location
 	 */
 	public final int getLocationY(){
-		// TO DO
+		
 		return this.customerLocationY;
 	}
 

@@ -34,7 +34,7 @@ import javax.swing.*;
  * You can also use this class and asgn2Wizards.PizzaWizard to test your system as a whole
  * 
  * 
- * @author Person A and Person B
+ * @author Raj Rosello and Levinard Hugo
  *
  */
 public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionListener {
@@ -63,7 +63,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	 * @param title - The title for the supertype JFrame
 	 */
 	public PizzaGUI(String title) {
-		// TO DO
+
 		super(title);
 	}
 	
@@ -96,17 +96,16 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    pizzaTextArea = createTextArea(); // creates the text box
 	    layoutButtonPanel(); // puts the buttons on screen
 	    
-	    scroll = new JScrollPane(this.pizzaTextArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	    
-	    
-	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
-	   
-	    this.getContentPane().add(scroll);
+
 	    this.getContentPane().add(pnlDisplay,BorderLayout.CENTER);
 	    this.getContentPane().add(pnlTwo,BorderLayout.NORTH);
 	    this.getContentPane().add(pnlBtn,BorderLayout.SOUTH);
 	    this.getContentPane().add(pnlFour,BorderLayout.EAST);
 	    this.getContentPane().add(pnlFive,BorderLayout.WEST);
+	    scroll = new JScrollPane(pnlDisplay,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    this.getContentPane().add(scroll);
+	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
+	    
 	    repaint(); 
 	    this.setVisible(true);
 	}
@@ -177,7 +176,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	
 	@Override
 	public void run() {
-		// TO DO
+		
 		createGUI();
 		
 	}
@@ -185,7 +184,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		//  Auto-generated method stub
 		Object src=e.getSource();
 		
 		if (src== btnLoad) {
@@ -227,7 +226,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					pizzaTextArea.append("Order Profit: " + restaurant.getPizzaByIndex(i).getOrderProfit()+ newline);
 					pizzaTextArea.append(newline);
 				} catch (PizzaException e1) {
-					// TODO Auto-generated catch block
+					// Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
@@ -246,7 +245,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					pizzaTextArea.append("Delivery Distance: " + restaurant.getCustomerByIndex(i).getDeliveryDistance() + newline);
 					pizzaTextArea.append(newline);
 				} catch (CustomerException e1) {
-					// TODO Auto-generated catch block
+					// Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
