@@ -178,15 +178,12 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	
 	@Override
 	public void run() {
-		
 		createGUI();
-		
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//  Auto-generated method stub
 		Object src=e.getSource();
 		
 		if (src== btnLoad) {
@@ -198,15 +195,15 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 				   String filename = file_opened.getName(); // gets name of file name
 				   
 				try {
-					if (restaurant.processLog(filename)) 
+					if (restaurant.processLog(filename)) {
 						JOptionPane.showMessageDialog(this, "Successful", "Loading Log file",JOptionPane.INFORMATION_MESSAGE);
+					}
 						pizzaTextArea.setText(filename + " is Chosen"+ newline + newline + "Click the other buttons for more information..");
 						pizzaButton.setEnabled(true);
 						customerButton.setEnabled(true);
 						calculateButton.setEnabled(true);
 						resetButton.setEnabled(true);
 						btnLoad.setEnabled(false);
-					
 						restaurant.processLog(filename); // loads the log file chosen
 				} catch (CustomerException | PizzaException | LogHandlerException e1) {
 					JOptionPane.showMessageDialog(this, "Unsuccessful", "Loading Log file",JOptionPane.ERROR_MESSAGE); 

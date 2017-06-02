@@ -63,7 +63,7 @@ public class PizzaRestaurant {
 	 * Returns the Customer object contained at the specified index of the customers field. The index should be the same as the index in the log file.
 	 * @param index - The index within the customers field to retrieve.
 	 * @return The Customer object located at the specified index.
-	 * @throws CustomerException if index is invalid.
+	 * @throws CustomerException if index is invalid. if index is out of bounds, or a negative number
 	 */
 	public Customer getCustomerByIndex(int index) throws CustomerException{
 		int size = customers.size();
@@ -80,7 +80,7 @@ public class PizzaRestaurant {
 	 * Returns the Pizza object contained at the specified index of the pizzas field. The index should be the same as the index in the log file.
 	 * @param index - The index within the pizzas field to retrieve.
 	 * @return The Pizza object located at the specified index.
-	 * @throws PizzaException if index is invalid.
+	 * @throws PizzaException if index is invalid. And if index is out of bounds, or a negative number
 	 */	
 	public Pizza getPizzaByIndex(int index) throws PizzaException{
 		int size = pizzas.size();

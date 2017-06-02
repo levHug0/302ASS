@@ -33,7 +33,7 @@ public class LogHandler {
 	 * @param filename The file name of the log file
 	 * @return an ArrayList of Customer objects from the information contained in the log file ordered as they appear in the log file. 
 	 * @throws CustomerException If the log file contains semantic errors leading that violate the customer constraints listed in Section 5.3 of the Assignment Specification or contain an invalid customer code (passed by another class).
-	 * @throws LogHandlerException If there was a problem with the log file not related to the semantic errors above
+	 * @throws LogHandlerException If there was a problem with the log file not related to the semantic errors above, Also Exception will be thrown if, name format is not characters from 1-20, mobile doesn't include numbers and is not starting with a 0 and is not 10 characters long, customerCode not "PUC" "DNC" "DVC", and if location X and Y exceed -10 and 10
 	 * 
 	 */
 	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException{
@@ -70,9 +70,11 @@ public class LogHandler {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
+			
 			br = new BufferedReader(fl);
 			String eye = Integer.toString(i);
 			returnCus.add(createCustomer(eye));
+			
 			try {
 				br.close();
 			} catch (IOException e) {
@@ -88,7 +90,7 @@ public class LogHandler {
 	 * @param filename The file name of the log file
 	 * @return an ArrayList of Pizza objects from the information contained in the log file ordered as they appear in the log file. .
 	 * @throws PizzaException If the log file contains semantic errors leading that violate the pizza constraints listed in Section 5.3 of the Assignment Specification or contain an invalid pizza code (passed by another class).
-	 * @throws LogHandlerException If there was a problem with the log file not related to the semantic errors above
+	 * @throws LogHandlerException If there was a problem with the log file not related to the semantic errors above, or if quantity is not a number string, orderTime and deliveryTime are not in a format of "HH:MM:SS", and if the pizzaCode is not "PZM" "PZL" "PZV"
 	 * 
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
@@ -99,7 +101,7 @@ public class LogHandler {
 	    } 
 		
 		ArrayList<Pizza> returnPizz = new ArrayList<Pizza>();
-		FileReader fl = null;				// main one
+		FileReader fl = null;				// used for reading the lines
 		FileReader lineCounter = null;		// used for counting lines
 		
 		try {
@@ -127,9 +129,11 @@ public class LogHandler {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
+			
 			br = new BufferedReader(fl);
 			String iToString = Integer.toString(i);
 			returnPizz.add(createPizza(iToString));
+			
 			try {
 				br.close();
 			} catch (IOException e) {
@@ -147,7 +151,7 @@ public class LogHandler {
 	 * @param line - A line from the log file
 	 * @return- A Customer object containing the information from the line in the log file
 	 * @throws CustomerException - If the log file contains semantic errors leading that violate the customer constraints listed in Section 5.3 of the Assignment Specification or contain an invalid customer code (passed by another class).
-	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
+	 * @throws LogHandlerException - If there was a problem parsing the line from the log file. Also Exception will be thrown if, name format is not characters from 1-20, mobile doesn't include numbers and is not starting with a 0 and is not 10 characters long, customerCode not "PUC" "DNC" "DVC", and if location X and Y exceed -10 and 10
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
 		//Regex for Exception throws
@@ -207,10 +211,10 @@ public class LogHandler {
 	 * @param line - A line from the log file
 	 * @return- A Pizza object containing the information from the line in the log file
 	 * @throws PizzaException If the log file contains semantic errors leading that violate the pizza constraints listed in Section 5.3 of the Assignment Specification or contain an invalid pizza code (passed by another class).
-	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
+	 * @throws LogHandlerException - If there was a problem parsing the line from the log file. Exception if quantity is not a number string, orderTime and deliveryTime are not in a format of "HH:MM:SS", and if the pizzaCode is not "PZM" "PZL" "PZV"
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
-		// These are used for checking if they can be parsed into a specific data type
+		// These are the regex used for checking whether a data can be parsed into a specific format
 		String intRegex = "[0-9]+";
 		String timeRegex = "(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)";
 		String codeRegex = "PZ[VML]";
@@ -233,6 +237,7 @@ public class LogHandler {
 		String[] pizzArr = thisLine.split(",");
 		
 		// Below checks if each data can be parsed into their specific type
+		// pizzArr[0] = orderTime, pizzArr[1] deliveryTime, pizzArr[7] = pizzaCode, and pizzArr[8] = quantity
 		if (pizzArr[0].matches(timeRegex) == false) {
 			throw new LogHandlerException("Order Time format incorrect. Correct format is HH:MM:SS");	
 		} else if (pizzArr[1].matches(timeRegex) == false) {

@@ -36,19 +36,20 @@ public abstract class Pizza  {
 	 * @param deliveryTime - The time that the pizza was delivered to the customer
 	 * @param type -  A human understandable description of this Pizza type
 	 * @param price - The price that the pizza is sold to the customer
-	 * @throws PizzaException if supplied parameters are invalid 
+	 * @throws PizzaException if supplied parameters are invalid, i.e. if quantity is less than 1 or more than 10, if orderTime and deliverTime are not made between 7pm (19:00) and 11pm (23:00), throw exception if deliveryTime is not at least 10 minutes longer than orderTime, lastly if deliveryTime is more than 1 hour longer than orderTime then throw exception 
 	 * 
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		if (quantity < 1 || quantity > 10) {
 			throw new PizzaException("Atleast ONE pizza must be ordered OR Can only order less than 10 pizzas");
 		}
-		int order = 0;		// used for checking orderTime
-		int deliver = 0;	// used for checking deliveryTime
-		int pizzaCookingTime = 10; // 10 minutes
+		
+		int order = 0;				// used for orderTime
+		int deliver = 0;			// used for deliveryTime
+		int pizzaCookingTime = 10; 	// 10 minutes
 		
 		for (int i = 0; i < orderTime.getHour(); i++) {
-			order += 60;	// for example, if time is 06:20, order will be '360' ,   6 * 60 = 360
+			order += 60;						// for example, if time is 06:20, order will be '360' ,   6 * 60 = 360
 		}
 		
 		if (deliveryTime.getHour() == 0) {
@@ -58,7 +59,8 @@ public abstract class Pizza  {
 				deliver += 60;
 			}
 		}
-		order += orderTime.getMinute();		// order of 360 + 20 = 380
+		
+		order += orderTime.getMinute();			// order hour + orderMinute;
 		deliver += deliveryTime.getMinute();
 		
 		// 1140 = 19:00 (7pm) 	and 	1380 = 23:00 (11pm)
@@ -106,7 +108,6 @@ public abstract class Pizza  {
 	 * @return The amount that an individual pizza costs to make.
 	 */
 	public final double getCostPerPizza(){
-		
 		calculateCostPerPizza();
 		return cost;	// returns 1.5, 5.5 or 5
 	}
@@ -155,13 +156,13 @@ public abstract class Pizza  {
 	 */
 	public final boolean containsTopping(PizzaTopping topping){
 		if ((price == 8) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE)) {
-			return true;
+			return true;	// Margherita
 		} else if ((price == 10) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE || 
 				topping == PizzaTopping.EGGPLANT || topping == PizzaTopping.MUSHROOM || topping == PizzaTopping.CAPSICUM)) {
-			return true;
+			return true;	// Vegetarian
 		} else if ((price == 12) && (topping == PizzaTopping.TOMATO || topping == PizzaTopping.CHEESE || 
 				topping == PizzaTopping.BACON || topping == PizzaTopping.PEPPERONI || topping == PizzaTopping.SALAMI)) {
-			return true;
+			return true;	// Meat Lovers
 		} else {
 			return false;
 		}

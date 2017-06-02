@@ -24,7 +24,7 @@ public class DriverDeliveryCustomer extends Customer {
 	 * @param mobileNumber - The customer mobile number
 	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
 	 * @param locationY -  The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @throws CustomerException if supplied parameters are invalid
+	 * @throws CustomerException if supplied parameters are invalid, or if name is less than 1 or more than 20 characters and cannot contain just whitespaces, or if mobile number is not 10 characters and not starting with a 0, or if location x and y are more than 10 or -10
 	 * 
 	 */
 	public DriverDeliveryCustomer(String name, String mobileNumber, int locationX, int locationY) throws CustomerException {

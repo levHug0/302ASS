@@ -28,7 +28,7 @@ public class VegetarianPizza extends Pizza {
 	 * @param quantity - The number of pizzas ordered 
 	 * @param orderTime - The time that the pizza order was made and sent to the kitchen 
 	 * @param deliveryTime - The time that the pizza was delivered to the customer
-	 * @throws PizzaException if supplied parameters are invalid 
+	 * @throws PizzaException if supplied parameters are invalid, and if quantity is less than 1 or more than 10,  if orderTime and deliverTime are not made between 7pm (19:00) and 11pm (23:00), throw exception if deliveryTime is not at least 10 minutes longer than orderTime, lastly if deliveryTime is more than 1 hour longer than orderTime then throw exception 
 	 *
 	 */
 	public VegetarianPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
