@@ -118,4 +118,28 @@ public class RestaurantCustomerTests {
 		// pr size is only 3, so if a number above 3 is specified it shouldn't work
 		Customer myFavouriteCustomerThatWillNotWork = pr.getCustomerByIndex(69);
 	}
+	
+	// test equals 1
+	@Test
+	public void testEquals() throws PizzaException, CustomerException, LogHandlerException {
+		PizzaRestaurant pr2 = new PizzaRestaurant();
+		pr2.processLog("20170101.txt");
+		assertTrue(pr.getCustomerByIndex(0).equals(pr2.getCustomerByIndex(0)));
+	}
+	
+	// test equals 2
+	@Test
+	public void testEquals2() throws PizzaException, CustomerException, LogHandlerException {
+		PizzaRestaurant pr2 = new PizzaRestaurant();
+		pr2.processLog("20170101.txt");
+		assertTrue(pr.getCustomerByIndex(1).equals(pr2.getCustomerByIndex(1)));
+	}
+	
+	// test equals 3
+	@Test
+	public void testEquals3() throws PizzaException, CustomerException, LogHandlerException {
+		PizzaRestaurant pr2 = new PizzaRestaurant();
+		pr2.processLog("20170101.txt");
+		assertTrue(pr.getCustomerByIndex(2).equals(pr2.getCustomerByIndex(2)));
+	}
 }

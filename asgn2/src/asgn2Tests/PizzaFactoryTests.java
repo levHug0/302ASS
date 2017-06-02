@@ -25,7 +25,7 @@ public class PizzaFactoryTests {
 	
 	private LocalTime order = LocalTime.parse("20:30:00");
 	private LocalTime deliver = LocalTime.parse("20:45:00");
-	private LocalTime before7pm = LocalTime.parse("19:45:00");
+	private LocalTime before7pm = LocalTime.parse("18:45:00");
 	
 	
 	// Test for creating ALL Pizza types
@@ -99,7 +99,5 @@ public class PizzaFactoryTests {
 		notGonnaWork = PizzaFactory.getPizza("PZL", 1, before7pm, deliver);
 	}
 	
-	
-
 	
 }

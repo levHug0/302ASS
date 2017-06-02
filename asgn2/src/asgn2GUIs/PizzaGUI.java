@@ -109,6 +109,8 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    pnlDisplay.add(pizzaTextArea, BorderLayout.CENTER);
 	    
 	    repaint(); 
+	    this.setLocationRelativeTo(null);
+	    this.setResizable(false);
 	    this.setVisible(true);
 	}
 	

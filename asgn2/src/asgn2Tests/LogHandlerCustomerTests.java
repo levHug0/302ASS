@@ -1,6 +1,6 @@
 package asgn2Tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -116,6 +116,30 @@ public class LogHandlerCustomerTests {
 	@Test (expected = LogHandlerException.class)
 	public void throwCustomException() throws CustomerException, LogHandlerException {
 		notGonnaWork = LogHandler.populateCustomerDataset("Customer_customerException_forLocationX.txt");
+	}
+	
+	// Using the equals method to test equality
+	@Test
+	public void useEqualsT1() throws CustomerException, LogHandlerException{
+		ArrayList<Customer> test1 = LogHandler.populateCustomerDataset("20170101.txt");
+		ArrayList<Customer> test2 = LogHandler.populateCustomerDataset("20170101.txt");
+		assertTrue(test1.get(0).equals(test2.get(0)));
+	}
+	
+	// Using the equals method to test equality test 2
+	@Test
+	public void useEqualsT2() throws CustomerException, LogHandlerException{
+		ArrayList<Customer> test1 = LogHandler.populateCustomerDataset("20170101.txt");
+		ArrayList<Customer> test2 = LogHandler.populateCustomerDataset("20170101.txt");
+		assertTrue(test1.get(1).equals(test2.get(1)));
+	}
+	
+	// Using the equals method to test equality test 3
+	@Test
+	public void useEqualsT3() throws CustomerException, LogHandlerException{
+		ArrayList<Customer> test1 = LogHandler.populateCustomerDataset("20170101.txt");
+		ArrayList<Customer> test2 = LogHandler.populateCustomerDataset("20170101.txt");
+		assertTrue(test1.get(2).equals(test2.get(2)));
 	}
 	
 }
