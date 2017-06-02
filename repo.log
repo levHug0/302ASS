@@ -1,0 +1,993 @@
+* bc316a3 : Finalisation with all asgn2.Tests and Cleaning up code
+* 940df13 : Changes for the CustomerException in the Customer Class, and changes in the test classes
+*   52b4b09 : Change in calling double to have 2 decimal places, in PizzaGUI
+|\  
+| *   bfa906e : Merge branch 'master' of https://github.com/levHug0/302ASS
+| |\  
+| * | eaca528 : Added some more implementation
+* | | c783d51 : Change in calling double to have 2 decimal places, in PizzaGUI
+| |/  
+|/|   
+* | 0740aa6 : Modified ALL classes to remove TO DOs and add Author names
+* | 6da437f : Changes in PizzaGui
+|/  
+* 68ef525 : Changes in LogHander
+*   0c66f6c : Merge branch 'master' of https://github.com/levHug0/302ASS
+|\  
+| * 490f485 : Changes in LogHandler
+| *   7dc807c : Adding error txt files and fixing all asgn2 classes
+| |\  
+| * | 1f2d7bf : Modified LogHandler.java
+* | | 17a40e6 : Added some code to GUI
+| |/  
+|/|   
+* |   0c27e50 : Added
+|\ \  
+| |/  
+| *   0dcabf4 : Modified Loghandler and LoghandlerpizzaTests
+| |\  
+| * | 3b93b10 : Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+* | | 57e1a89 : Completed more implementations
+| |/  
+|/|   
+* | 5d5c537 : fixed
+* |   65e07ab : Merge branch 'master' of https://github.com/levHug0/302ASS
+|\ \  
+| |/  
+| *   b3d2b75 : Changes in Loghandler, LogHandlerPizzaTest,RestaurantCustomerTests
+| |\  
+| * | ce6616c : Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+* | | 682753c : added more implementation
+| |/  
+|/|   
+* | 1fc99ef : added stuff
+|/  
+*   09245fb : Merge branch 'master' of https://github.com/levHug0/302ASS
+|\  
+| * 0ebad46 : Added more to implementation
+| * e16a1c1 : Fixed more implementations
+| * 3730e92 : fixed some implementation
+* | 1548a10 : Chances in PizzaGUI and LogHandler
+|/  
+* 7df8826 : Changes to PizzaGUI
+* a33c218 : Changes to PizzaGUI
+* dedbd0e : Finished Restaurant except Person B part
+* e41152b : Fixed LogHandler.java
+* 96caa9a : Changes in asgnWizard and PizzaGUI
+* f9d44aa : Changes in LogHandler
+*   94dde78 : Added
+|\  
+| * 6facd77 : CHanges to Loghandler, LogHandlerTest, Error.txt
+* | d402429 : added
+* |   8852f88 : Added my stuff
+|\ \  
+| |/  
+| *   947af16 : changes in LogHandler
+| |\  
+| * | 2d3f31b : changes in LogHandler
+* | | 8749e16 : Added my stuff
+| |/  
+|/|   
+* |   c5b68ee : Merge branch 'master' of https://github.com/levHug0/302ASS
+|\ \  
+| |/  
+| * e5f5788 : CHanged Customer and CustomerTest class
+* | 5e11a20 : Added Loghandler stuff
+|/  
+* 930405e : Fixed Pizza.java
+* 8504df2 : fixed
+*   45497cf : Merge branch 'master' of https://github.com/levHug0/302ASS
+|\  
+| * 58f65cf : added more
+| * 4380379 : Added more tests
+| * 5b04436 : More tests
+| * 67b0b69 : Added stuff
+| * 38a2e00 : Pizza constructor implemented
+* | 6c6eaf1 : Changes in customer class
+|/  
+* 26cc7c8 : Changes to Customer.java and PickUpCustomer.java
+* 1ba2e07 : Update README.md
+* e119d1b : testing
+* 1077459 : Completed Pizza Package implementation except PizzaException constraints
+* b5545a0 : Completing Pizza and MargheritaPizza
+* 1bf8257 : completed customer blahaba
+* 6897add : Re-uploaded
+* 8b46a59 : Updated logs and javadoc
+* 9656ec1 : Update README.md
+* d94d0f8 : Update README.md
+* f0272f7 : Update README.md
+* 07f8800 : removed testing
+* 494e5c0 : testing
+* 7fa8469 : Added the assignment folder
+* 45d7ed5 : removed add
+* 8347b2f : first
+* a38354b : Initial commitcommit bc316a3e3fb925793183de0839cf01e2dd8ec071
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Fri Jun 2 11:01:21 2017 +1000
+
+    Finalisation with all asgn2.Tests and Cleaning up code
+
+commit 940df13c0efa248fe68a7f7b12b11cfb2055c681
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 18:53:27 2017 +1000
+
+    Changes for the CustomerException in the Customer Class, and changes in the test classes
+
+commit 52b4b090bcd23d5d278a85d5d96e40ca425e570d
+Merge: c783d51 bfa906e
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:53:31 2017 +1000
+
+    Change in calling double to have 2 decimal places, in PizzaGUI
+
+commit c783d5149aa92b4020311c5ced72b38b312de0ca
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:52:24 2017 +1000
+
+    Change in calling double to have 2 decimal places, in PizzaGUI
+
+commit bfa906e52594238ee10608443ca76e8edfb4c1c0
+Merge: eaca528 0740aa6
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 17:31:11 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit eaca528302668584389fc7a670291c1b001c9eab
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 17:31:03 2017 +1000
+
+    Added some more implementation
+
+commit 0740aa6f0f8e36225248c8bebe2d816667a500ff
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:29:30 2017 +1000
+
+    Modified ALL classes to remove TO DOs and add Author names
+
+commit 6da437f3151cf0bfe936b659f859f7e90df1240e
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:03:41 2017 +1000
+
+    Changes in PizzaGui
+
+commit 68ef5252808cbf17a406fb2a768cd1a5100af953
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:46:35 2017 +1000
+
+    Changes in LogHander
+
+commit 0c66f6ca9939871e5be2fc1c9383532dbf719746
+Merge: 17a40e6 490f485
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 16:18:19 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+    
+    coolies
+
+commit 17a40e62dfe04ac5d2ecba14a4345b4b922603fa
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 16:18:07 2017 +1000
+
+    Added some code to GUI
+
+commit 490f485393dc62a1f980b3e81d344f29518031ec
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:08:19 2017 +1000
+
+    Changes in LogHandler
+
+commit 7dc807c0de99a9be7472953d02b7d17e8af3cefc
+Merge: 1f2d7bf 0c27e50
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:05:56 2017 +1000
+
+    Adding error txt files and fixing all asgn2 classes
+
+commit 1f2d7bffe13a9059bccfb0851935b5dda39f5f35
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 00:06:06 2017 +1000
+
+    Modified LogHandler.java
+
+commit 0c27e50e7648280b09fad9dfac4ff536a7b08c0c
+Merge: 57e1a89 0dcabf4
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 00:03:58 2017 +1000
+
+    Added
+
+commit 0dcabf44d0cad9eb5fac2fae2dfc10cb402e5d91
+Merge: 3b93b10 5d5c537
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 23:59:01 2017 +1000
+
+    Modified Loghandler and LoghandlerpizzaTests
+
+commit 3b93b102255c309f1cd07444d2ea443c27105b38
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 23:57:46 2017 +1000
+
+    Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+
+commit 57e1a8964328f4c425390d84bb2db02492b8e819
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 23:57:00 2017 +1000
+
+    Completed more implementations
+
+commit 5d5c5375ee947608063a037c0f6746c2b77439fb
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:46:27 2017 +1000
+
+    fixed
+
+commit 65e07ab237d434e7312d062c36191892477f9460
+Merge: 682753c b3d2b75
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:43:21 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 682753c05c9d7afc5e368406223f59521b9969ad
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:43:10 2017 +1000
+
+    added more implementation
+
+commit b3d2b75af5305f0965071647d3cc1aea5f5293c0
+Merge: ce6616c 1fc99ef
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 21:41:45 2017 +1000
+
+    Changes in Loghandler, LogHandlerPizzaTest,RestaurantCustomerTests
+
+commit ce6616cc4727c7fa53a35f9c4a4734e42c920427
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 21:39:31 2017 +1000
+
+    Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+
+commit 1fc99ef53bc8b556f34675d40427b54a62033066
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:04:37 2017 +1000
+
+    added stuff
+
+commit 09245fb59e0dbb09baf132560b9a41e4a810114a
+Merge: 1548a10 0ebad46
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 19:44:35 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 0ebad465cfe6f713eeea09f27c4df55d06eff2fb
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 18:57:32 2017 +1000
+
+    Added more to implementation
+
+commit 1548a10279c020df79021644415e380e99413da9
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 15:51:22 2017 +1000
+
+    Chances in PizzaGUI and LogHandler
+
+commit e16a1c14501ee897a7a58f36f7a67d8b6de19d02
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 15:42:53 2017 +1000
+
+    Fixed more implementations
+
+commit 3730e92855124324449d63a3a4d96ce55bfd67d8
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 14:48:22 2017 +1000
+
+    fixed some implementation
+
+commit 7df88266dc5af3680125b98112f04b5195078d61
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 23:33:13 2017 +1000
+
+    Changes to PizzaGUI
+
+commit a33c218d8f658362b1fc6ed03c829c425f945cac
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 23:32:46 2017 +1000
+
+    Changes to PizzaGUI
+
+commit dedbd0ead7591d17a99fa351a6d06fa30ca9dbfd
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 30 23:31:42 2017 +1000
+
+    Finished Restaurant except Person B part
+
+commit e41152b90d82092f9a694098727be14de65b3c8c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 30 22:01:21 2017 +1000
+
+    Fixed LogHandler.java
+
+commit 96caa9ab2d18cc63e354b2748c3e2576fbcf5f5f
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 21:55:35 2017 +1000
+
+    Changes in asgnWizard and PizzaGUI
+
+commit f9d44aa90639692462492d40590fe7337ec781a3
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 12:49:02 2017 +1000
+
+    Changes in LogHandler
+
+commit 94dde78fddc6e2f72306c42b845668b6f5d53b3e
+Merge: d402429 6facd77
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 21:52:47 2017 +1000
+
+    Added
+
+commit d40242928f35afc589d4c63034e5bcf7a51ae4fc
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 21:51:35 2017 +1000
+
+    added
+
+commit 6facd77eb10349d57741031091e20b16885d9533
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 21:49:53 2017 +1000
+
+    CHanges to Loghandler, LogHandlerTest, Error.txt
+
+commit 8852f888694ec94d8ed23f4e169f5720ae3158e4
+Merge: 8749e16 947af16
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:55:56 2017 +1000
+
+    Added my stuff
+
+commit 8749e166b33e6bc64da5f2e567f35531cd822fe2
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:54:32 2017 +1000
+
+    Added my stuff
+
+commit 947af1668ebfb6c56cffaad1e615082ee86d3173
+Merge: 2d3f31b c5b68ee
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 20:53:05 2017 +1000
+
+    changes in LogHandler
+
+commit 2d3f31b465050e10dccf2c67d7d39fcbb3aa09f8
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 20:48:40 2017 +1000
+
+    changes in LogHandler
+
+commit c5b68ee9fba6307864a52ebbe4d0123a46e47e65
+Merge: 5e11a20 e5f5788
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:46:51 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 5e11a20a56097f2f250c98b55c43e6c34bdc4b62
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:44:44 2017 +1000
+
+    Added Loghandler stuff
+
+commit e5f5788d80e1e9610956f5e8c9381553fd504f59
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 19:48:04 2017 +1000
+
+    CHanged Customer and CustomerTest class
+
+commit 930405ece9448b0bf64e7a7685d8402d602efa6a
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 16:23:55 2017 +1000
+
+    Fixed Pizza.java
+
+commit 8504df2782a21b37d234913a64f1bd9aa63d85fd
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 16:08:52 2017 +1000
+
+    fixed
+
+commit 45497cfa258da8a58219109c3a95506607db2773
+Merge: 6c6eaf1 58f65cf
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 09:43:50 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 6c6eaf1ff9af5c3e205d72690ed4298fc380c2fc
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 09:43:17 2017 +1000
+
+    Changes in customer class
+
+commit 58f65cf735192d6dd4d9c91b8321462e40c3b330
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu May 25 23:40:59 2017 +1000
+
+    added more
+
+commit 438037948fd4501ef1faf4e2218bc687953a075a
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 24 22:05:41 2017 +1000
+
+    Added more tests
+
+commit 5b044364c873502c6467af6538cbbc7ce12a0d21
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 23:23:03 2017 +1000
+
+    More tests
+
+commit 67b0b69645a742c22fec30d309d0085e8785a58b
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 17:50:20 2017 +1000
+
+    Added stuff
+
+commit 38a2e0076c4c7db5728453b78d05245a20435a1b
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 14:41:49 2017 +1000
+
+    Pizza constructor implemented
+
+commit 26cc7c8e58d3130b2e06a49d20b21aeedfe9845a
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Sun May 21 16:50:13 2017 +1000
+
+    Changes to Customer.java and PickUpCustomer.java
+
+commit 1ba2e0774c78de0b016d7f197e9cc2085d3677c0
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 17:50:30 2017 +1000
+
+    Update README.md
+
+commit e119d1b81f4355e612caf9c95cd45515ea7af4b6
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 16:40:13 2017 +1000
+
+    testing
+
+commit 107745924c8e5487f41814deb1a03c69b2794353
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 16:20:11 2017 +1000
+
+    Completed Pizza Package implementation except PizzaException constraints
+
+commit b5545a0f4c5ec1443345e9d799474714127e2dbe
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 16 16:28:40 2017 +1000
+
+    Completing Pizza and MargheritaPizza
+
+commit 1bf82578c92c53d77b2a95e4765b80e1981cacc3
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 15 14:58:12 2017 +1000
+
+    completed customer blahaba
+
+commit 6897addf2810c9d52967b6656654331c1f8a76ec
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 15 13:42:17 2017 +1000
+
+    Re-uploaded
+
+commit 8b46a59e31a764eb888ab032a100344f0a31b97e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 8 19:51:31 2017 +1000
+
+    Updated logs and javadoc
+
+commit 9656ec1de4988a17f674b6d65de9c10cffa68d04
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 1 18:09:12 2017 +1000
+
+    Update README.md
+    
+    Updated README.md
+
+commit d94d0f85d363db988372c530064af2b474c0da2b
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 1 18:08:33 2017 +1000
+
+    Update README.md
+    
+    Updated README.md
+
+commit f0272f7296351e856ab5bff09f41f648c2923b3b
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:34:46 2017 +1000
+
+    Update README.md
+
+commit 07f8800287774daed419e360b45bfe45d89b980e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:33:43 2017 +1000
+
+    removed testing
+
+commit 494e5c0e955b7981c721b8ac4b512d0bbf05364f
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:27:56 2017 +1000
+
+    testing
+
+commit 7fa84691b1fbe31cd2675a20d0d92ac6de540d9c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:57:06 2017 +1000
+
+    Added the assignment folder
+
+commit 45d7ed52bb5a6cae44b2b18b1b8536474a1d1d7e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:55:50 2017 +1000
+
+    removed add
+
+commit 8347b2f83e90018aef79dc24c7415217e3dac00c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:52:54 2017 +1000
+
+    first
+
+commit a38354bc02f630ac231694499d35befd963572c7
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 20:36:55 2017 +1000
+
+    Initial commit
+commit bc316a3e3fb925793183de0839cf01e2dd8ec071
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Fri Jun 2 11:01:21 2017 +1000
+
+    Finalisation with all asgn2.Tests and Cleaning up code
+
+commit 940df13c0efa248fe68a7f7b12b11cfb2055c681
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 18:53:27 2017 +1000
+
+    Changes for the CustomerException in the Customer Class, and changes in the test classes
+
+commit 52b4b090bcd23d5d278a85d5d96e40ca425e570d
+Merge: c783d51 bfa906e
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:53:31 2017 +1000
+
+    Change in calling double to have 2 decimal places, in PizzaGUI
+
+commit c783d5149aa92b4020311c5ced72b38b312de0ca
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:52:24 2017 +1000
+
+    Change in calling double to have 2 decimal places, in PizzaGUI
+
+commit bfa906e52594238ee10608443ca76e8edfb4c1c0
+Merge: eaca528 0740aa6
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 17:31:11 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit eaca528302668584389fc7a670291c1b001c9eab
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 17:31:03 2017 +1000
+
+    Added some more implementation
+
+commit 0740aa6f0f8e36225248c8bebe2d816667a500ff
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:29:30 2017 +1000
+
+    Modified ALL classes to remove TO DOs and add Author names
+
+commit 6da437f3151cf0bfe936b659f859f7e90df1240e
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 17:03:41 2017 +1000
+
+    Changes in PizzaGui
+
+commit 68ef5252808cbf17a406fb2a768cd1a5100af953
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:46:35 2017 +1000
+
+    Changes in LogHander
+
+commit 0c66f6ca9939871e5be2fc1c9383532dbf719746
+Merge: 17a40e6 490f485
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 16:18:19 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+    
+    coolies
+
+commit 17a40e62dfe04ac5d2ecba14a4345b4b922603fa
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 16:18:07 2017 +1000
+
+    Added some code to GUI
+
+commit 490f485393dc62a1f980b3e81d344f29518031ec
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:08:19 2017 +1000
+
+    Changes in LogHandler
+
+commit 7dc807c0de99a9be7472953d02b7d17e8af3cefc
+Merge: 1f2d7bf 0c27e50
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 16:05:56 2017 +1000
+
+    Adding error txt files and fixing all asgn2 classes
+
+commit 1f2d7bffe13a9059bccfb0851935b5dda39f5f35
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Thu Jun 1 00:06:06 2017 +1000
+
+    Modified LogHandler.java
+
+commit 0c27e50e7648280b09fad9dfac4ff536a7b08c0c
+Merge: 57e1a89 0dcabf4
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu Jun 1 00:03:58 2017 +1000
+
+    Added
+
+commit 0dcabf44d0cad9eb5fac2fae2dfc10cb402e5d91
+Merge: 3b93b10 5d5c537
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 23:59:01 2017 +1000
+
+    Modified Loghandler and LoghandlerpizzaTests
+
+commit 3b93b102255c309f1cd07444d2ea443c27105b38
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 23:57:46 2017 +1000
+
+    Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+
+commit 57e1a8964328f4c425390d84bb2db02492b8e819
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 23:57:00 2017 +1000
+
+    Completed more implementations
+
+commit 5d5c5375ee947608063a037c0f6746c2b77439fb
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:46:27 2017 +1000
+
+    fixed
+
+commit 65e07ab237d434e7312d062c36191892477f9460
+Merge: 682753c b3d2b75
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:43:21 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 682753c05c9d7afc5e368406223f59521b9969ad
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:43:10 2017 +1000
+
+    added more implementation
+
+commit b3d2b75af5305f0965071647d3cc1aea5f5293c0
+Merge: ce6616c 1fc99ef
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 21:41:45 2017 +1000
+
+    Changes in Loghandler, LogHandlerPizzaTest,RestaurantCustomerTests
+
+commit ce6616cc4727c7fa53a35f9c4a4734e42c920427
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 21:39:31 2017 +1000
+
+    Changes in PizzaGUI, LogHandler, and PizzaRestaurant
+
+commit 1fc99ef53bc8b556f34675d40427b54a62033066
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 21:04:37 2017 +1000
+
+    added stuff
+
+commit 09245fb59e0dbb09baf132560b9a41e4a810114a
+Merge: 1548a10 0ebad46
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 19:44:35 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 0ebad465cfe6f713eeea09f27c4df55d06eff2fb
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 18:57:32 2017 +1000
+
+    Added more to implementation
+
+commit 1548a10279c020df79021644415e380e99413da9
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Wed May 31 15:51:22 2017 +1000
+
+    Chances in PizzaGUI and LogHandler
+
+commit e16a1c14501ee897a7a58f36f7a67d8b6de19d02
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 15:42:53 2017 +1000
+
+    Fixed more implementations
+
+commit 3730e92855124324449d63a3a4d96ce55bfd67d8
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 31 14:48:22 2017 +1000
+
+    fixed some implementation
+
+commit 7df88266dc5af3680125b98112f04b5195078d61
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 23:33:13 2017 +1000
+
+    Changes to PizzaGUI
+
+commit a33c218d8f658362b1fc6ed03c829c425f945cac
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 23:32:46 2017 +1000
+
+    Changes to PizzaGUI
+
+commit dedbd0ead7591d17a99fa351a6d06fa30ca9dbfd
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 30 23:31:42 2017 +1000
+
+    Finished Restaurant except Person B part
+
+commit e41152b90d82092f9a694098727be14de65b3c8c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 30 22:01:21 2017 +1000
+
+    Fixed LogHandler.java
+
+commit 96caa9ab2d18cc63e354b2748c3e2576fbcf5f5f
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 21:55:35 2017 +1000
+
+    Changes in asgnWizard and PizzaGUI
+
+commit f9d44aa90639692462492d40590fe7337ec781a3
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Tue May 30 12:49:02 2017 +1000
+
+    Changes in LogHandler
+
+commit 94dde78fddc6e2f72306c42b845668b6f5d53b3e
+Merge: d402429 6facd77
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 21:52:47 2017 +1000
+
+    Added
+
+commit d40242928f35afc589d4c63034e5bcf7a51ae4fc
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 21:51:35 2017 +1000
+
+    added
+
+commit 6facd77eb10349d57741031091e20b16885d9533
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 21:49:53 2017 +1000
+
+    CHanges to Loghandler, LogHandlerTest, Error.txt
+
+commit 8852f888694ec94d8ed23f4e169f5720ae3158e4
+Merge: 8749e16 947af16
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:55:56 2017 +1000
+
+    Added my stuff
+
+commit 8749e166b33e6bc64da5f2e567f35531cd822fe2
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:54:32 2017 +1000
+
+    Added my stuff
+
+commit 947af1668ebfb6c56cffaad1e615082ee86d3173
+Merge: 2d3f31b c5b68ee
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 20:53:05 2017 +1000
+
+    changes in LogHandler
+
+commit 2d3f31b465050e10dccf2c67d7d39fcbb3aa09f8
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 20:48:40 2017 +1000
+
+    changes in LogHandler
+
+commit c5b68ee9fba6307864a52ebbe4d0123a46e47e65
+Merge: 5e11a20 e5f5788
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:46:51 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 5e11a20a56097f2f250c98b55c43e6c34bdc4b62
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 20:44:44 2017 +1000
+
+    Added Loghandler stuff
+
+commit e5f5788d80e1e9610956f5e8c9381553fd504f59
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 19:48:04 2017 +1000
+
+    CHanged Customer and CustomerTest class
+
+commit 930405ece9448b0bf64e7a7685d8402d602efa6a
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 16:23:55 2017 +1000
+
+    Fixed Pizza.java
+
+commit 8504df2782a21b37d234913a64f1bd9aa63d85fd
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 29 16:08:52 2017 +1000
+
+    fixed
+
+commit 45497cfa258da8a58219109c3a95506607db2773
+Merge: 6c6eaf1 58f65cf
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 09:43:50 2017 +1000
+
+    Merge branch 'master' of https://github.com/levHug0/302ASS
+
+commit 6c6eaf1ff9af5c3e205d72690ed4298fc380c2fc
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Mon May 29 09:43:17 2017 +1000
+
+    Changes in customer class
+
+commit 58f65cf735192d6dd4d9c91b8321462e40c3b330
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Thu May 25 23:40:59 2017 +1000
+
+    added more
+
+commit 438037948fd4501ef1faf4e2218bc687953a075a
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 24 22:05:41 2017 +1000
+
+    Added more tests
+
+commit 5b044364c873502c6467af6538cbbc7ce12a0d21
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 23:23:03 2017 +1000
+
+    More tests
+
+commit 67b0b69645a742c22fec30d309d0085e8785a58b
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 17:50:20 2017 +1000
+
+    Added stuff
+
+commit 38a2e0076c4c7db5728453b78d05245a20435a1b
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 23 14:41:49 2017 +1000
+
+    Pizza constructor implemented
+
+commit 26cc7c8e58d3130b2e06a49d20b21aeedfe9845a
+Author: Raj Rosello <rajrosello21@gmail.com>
+Date:   Sun May 21 16:50:13 2017 +1000
+
+    Changes to Customer.java and PickUpCustomer.java
+
+commit 1ba2e0774c78de0b016d7f197e9cc2085d3677c0
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 17:50:30 2017 +1000
+
+    Update README.md
+
+commit e119d1b81f4355e612caf9c95cd45515ea7af4b6
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 16:40:13 2017 +1000
+
+    testing
+
+commit 107745924c8e5487f41814deb1a03c69b2794353
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Wed May 17 16:20:11 2017 +1000
+
+    Completed Pizza Package implementation except PizzaException constraints
+
+commit b5545a0f4c5ec1443345e9d799474714127e2dbe
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Tue May 16 16:28:40 2017 +1000
+
+    Completing Pizza and MargheritaPizza
+
+commit 1bf82578c92c53d77b2a95e4765b80e1981cacc3
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 15 14:58:12 2017 +1000
+
+    completed customer blahaba
+
+commit 6897addf2810c9d52967b6656654331c1f8a76ec
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 15 13:42:17 2017 +1000
+
+    Re-uploaded
+
+commit 8b46a59e31a764eb888ab032a100344f0a31b97e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 8 19:51:31 2017 +1000
+
+    Updated logs and javadoc
+
+commit 9656ec1de4988a17f674b6d65de9c10cffa68d04
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 1 18:09:12 2017 +1000
+
+    Update README.md
+    
+    Updated README.md
+
+commit d94d0f85d363db988372c530064af2b474c0da2b
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Mon May 1 18:08:33 2017 +1000
+
+    Update README.md
+    
+    Updated README.md
+
+commit f0272f7296351e856ab5bff09f41f648c2923b3b
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:34:46 2017 +1000
+
+    Update README.md
+
+commit 07f8800287774daed419e360b45bfe45d89b980e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:33:43 2017 +1000
+
+    removed testing
+
+commit 494e5c0e955b7981c721b8ac4b512d0bbf05364f
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 22:27:56 2017 +1000
+
+    testing
+
+commit 7fa84691b1fbe31cd2675a20d0d92ac6de540d9c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:57:06 2017 +1000
+
+    Added the assignment folder
+
+commit 45d7ed52bb5a6cae44b2b18b1b8536474a1d1d7e
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:55:50 2017 +1000
+
+    removed add
+
+commit 8347b2f83e90018aef79dc24c7415217e3dac00c
+Author: Levi <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 21:52:54 2017 +1000
+
+    first
+
+commit a38354bc02f630ac231694499d35befd963572c7
+Author: levHug0 <levinard.hugo@connect.qut.edu.au>
+Date:   Sun Apr 30 20:36:55 2017 +1000
+
+    Initial commit
