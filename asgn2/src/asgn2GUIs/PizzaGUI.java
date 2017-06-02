@@ -259,6 +259,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 			
 		}else if(src == resetButton){// end if
 			pizzaTextArea.setText("Select again");
+			restaurant.resetDetails();
 			btnLoad.setEnabled(true);
 			pizzaButton.setEnabled(false);
 			customerButton.setEnabled(false);

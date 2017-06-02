@@ -136,7 +136,7 @@ public class CustomerTests {
 		assertEquals(ddc.getDeliveryDistance(), 5.83, 0.001);
 	}
 	
-	// Test getDeliveryDistance() test 2 Eulidean
+	// Test getDeliveryDistance() test 2 Euclidean
 	@Test
 	public void getDeliveryDistanceTest2ForDrone() throws CustomerException {
 		double xpected;
@@ -144,7 +144,7 @@ public class CustomerTests {
 		assertEquals(ddc.getDeliveryDistance(), (xpected = 10), 0.01);
 	}
 	
-	// Test getDeliveryDistance() test 3 Eulidean
+	// Test getDeliveryDistance() test 3 Euclidean
 	@Test
 	public void getDeliveryDistanceTest3ForDrone() throws CustomerException {
 		double xpected = 5.385;

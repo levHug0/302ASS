@@ -45,6 +45,7 @@ public abstract class Pizza  {
 		}
 		int order = 0;		// used for checking orderTime
 		int deliver = 0;	// used for checking deliveryTime
+		int pizzaCookingTime = 10; // 10 minutes
 		
 		for (int i = 0; i < orderTime.getHour(); i++) {
 			order += 60;	// for example, if time is 06:20, order will be '360' ,   6 * 60 = 360
@@ -66,7 +67,7 @@ public abstract class Pizza  {
 			throw new PizzaException("Order only from 7pm (19:00) to 11pm (23:00)");
 		}
 		
-		int orderFinished = order + 10;	// + 10 because it takes 10 minutes to make the Pizza
+		int orderFinished = order + pizzaCookingTime;	// + 10 because it takes 10 minutes to make the Pizza
 		int orderDeliverDifference = deliver - order;	// for example, deliver = 90 and order = 60,   90 - 60 -> difference is 30
 		
 		if (orderFinished > deliver) {

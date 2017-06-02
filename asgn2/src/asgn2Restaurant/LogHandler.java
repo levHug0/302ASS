@@ -150,14 +150,15 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
+		//Regex for Exception throws
 		String intRegex = "[0-9]+";
 		String nameRegex = "[a-zA-Z][a-zA-Z' ]{0,19}";
-
 		String mobileNumberRegex = "0[0-9]{9}";
 		String codeRegex1 = "PUC";
 		String codeRegex2 = "DNC";
 		String codeRegex3 = "DVC";
 		String xAndyRegex = "[+-]?[0-9]{1}0?";		// "[0-9]"
+		
 		int lineToInt;
 		
 		if (line.matches(intRegex) == false) {
@@ -180,7 +181,7 @@ public class LogHandler {
 		String mobileNumber = compareArray[3];
 		String customercode = compareArray[4];
 		
-				
+		//Exception throw conditions		
 		if(name.matches(nameRegex) == false){
 			throw new LogHandlerException("Name Format should be maximum 20 characters long minimum of 1 letter and should not have only whitespace");
 		} else if (mobileNumber.matches(mobileNumberRegex) == false){
@@ -190,7 +191,8 @@ public class LogHandler {
 		} else if ((compareArray[5].matches(xAndyRegex) == false) || (compareArray[6].matches(xAndyRegex) == false)) {
 			throw new LogHandlerException("locationX OR locationY needs to be a number");
 		}
-			
+		
+		// Below parses the information
 		int locationX = Integer.parseInt(compareArray[5]);
 		int locationY = Integer.parseInt(compareArray[6]);
 		

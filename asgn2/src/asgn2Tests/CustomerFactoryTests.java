@@ -36,7 +36,7 @@ public class CustomerFactoryTests {
 		assertEquals(custom.getCustomerType(), "Driver Delivery");
 	}
 	
-	// Indirectly testing the Driver Delivery
+	// Indirectly testing the Pick Up
 	@Test
 	public void createPickUp() throws CustomerException {
 		custom = CustomerFactory.getCustomer("PUC", name, mobileNumber, 0, 0);
